@@ -57,6 +57,15 @@ of long-stay residents back to fee-for-service (effective July 1, 2027) will be 
 Everything between now and January 2027 is the organizing window. Build the list now so
 it can move in January.
 
+## Verification
+
+Every statistic was verified against current sources on **September 8, 2026**. Three
+claims from earlier drafts were checked and **rejected** — an "88% of Indiana facilities"
+figure that was really a national number, an Indiana RN-hours figure that would have
+undercut the argument, and an outdated AARP ranking superseded by a better one. See
+`campaign/sources.md` for the full record, including which claims rest on a single source
+and what still needs to be confirmed by phone before the first post.
+
 ## Rules that apply to everything in here
 
 - Every statistic gets a source. No exceptions.

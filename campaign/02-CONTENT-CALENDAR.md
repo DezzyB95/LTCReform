@@ -52,7 +52,7 @@ Theme: *the floor is gone and nobody told you.*
 | Wed | FB | Where the Money Went — the lawsuit detail |
 | Thu | TikTok | Script 3 — "Two-person assist" |
 | Fri | FB | The Math — night shift |
-| Sat | Bluesky/X | Standalone: 0.66 RN HPRD / 88% |
+| Sat | Bluesky/X | Standalone: 29.6% below expected need / ten worst states |
 | Sun | — | Review analytics. Note which two posts outperformed. Do more of those. |
 
 ## Week 3 — Usefulness

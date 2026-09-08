@@ -44,7 +44,7 @@ Full-bleed off-white. One giant figure, one line of context, one source line.
 > resident, adjusted for acuity.
 > *Source: IndyStar analysis of federal data*
 
-Variants: `$2.6 billion` · `88%` · `0.66` · `30 days` · `2034`
+Variants: `$2.6 billion` · `29.6%` · `3.51` · `30 days` · `2034`
 
 ### T2 — The Math Card
 Handwritten-notebook or plain-ledger feel. A visible subtraction.

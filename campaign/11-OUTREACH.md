@@ -98,8 +98,8 @@ because frontline workers can't talk.
 >
 > One, I'm hearing consistent reports of assignments in the 15–20 resident range on day
 > shift and 30–40 overnight, statewide, which lines up with Indiana ranking 50th on
-> acuity-adjusted staffing hours and 88% of Indiana facilities staffing below their own
-> residents' assessed needs in Q1 2026 federal data.
+> acuity-adjusted staffing hours — 3.51 total nurse HPRD against a national average of
+> 3.76 — and staffing 29.6% below residents' expected need in Q1 2026 federal data.
 >
 > Two, an angle I don't think has been covered: resident-rights enforcement in Indiana runs
 > entirely through the most retaliation-exposed person in the building. Aides get written
@@ -147,8 +147,8 @@ convert. Offer instead.
 > I'm writing because I think I have something you don't: workers who will talk, in
 > counties across the state, with a protocol for protecting them.
 >
-> Indiana is 50th nationally on acuity-adjusted staffing, 88% of facilities are staffing
-> below their residents' assessed needs, and the federal minimum staffing standard is
+> Indiana is 50th nationally on acuity-adjusted staffing, staffs 29.6% below residents'
+> expected need, and the federal minimum staffing standard is
 > repealed and blocked from enforcement until after 2034. State-level work is the only
 > thing left, and the 2027 budget session is the window.
 >

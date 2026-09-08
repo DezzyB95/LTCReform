@@ -91,7 +91,8 @@ hospitals to get the records) + link to your contact page.
 >
 > Someone always is.
 >
-> Indiana averages 0.66 RN hours per resident per day. That's the whole state.
+> Statewide, Indiana nursing homes staff nearly 30 percent below what their own
+> residents' assessed needs call for. That's not one bad building. That's the whole state.
 
 ---
 

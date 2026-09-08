@@ -120,9 +120,9 @@ and citable does.
 > When IndyStar asked how the money was spent, eight county hospitals refused. The paper
 > sued in 2022 to obtain public records about public money.
 
-> Meanwhile: 88% of Indiana nursing homes provide less staffing than their own residents'
-> assessed needs require (Q1 2026 federal data). Statewide average: 0.66 RN hours per
-> resident day.
+> Meanwhile: Indiana staffs 29.6% below its own residents' expected need and ranks among
+> the ten worst states (Q1 2026 federal data, LTCCC). Acuity-adjusted, Indiana provides
+> 3.51 total nurse hours per resident day against a national average of 3.76.
 
 > And there is now no federal backstop. The 2024 CMS minimum staffing rule was vacated in
 > April 2025, barred from enforcement until after 9/30/2034 by statute, and formally
@@ -158,8 +158,9 @@ and citable does.
 
 ## Standalone posts
 
-> Indiana averages 0.66 RN hours per resident day. 88% of Indiana nursing homes staff
-> below their own residents' assessed clinical needs. (Q1 2026 federal data, via LTCCC.)
+> Indiana staffs 29.6% below its own residents' expected need — among the ten worst states
+> in the country. Nationally 90.2% of nursing homes are below expected levels. (Q1 2026
+> federal payroll data, via LTCCC.)
 
 > Reminder that the federal nursing home minimum staffing standard is not delayed. It is
 > repealed, and Congress has barred enforcement until after September 30, 2034. States are
@@ -211,8 +212,8 @@ Once a week. Longer form. Always end with a question that invites disagreement.
 > Indiana has never had a state standard.
 >
 > For operators, that removes a compliance deadline. It does not remove the underlying
-> problem: 88% of Indiana facilities currently staff below their own residents' assessed
-> clinical needs, and Indiana is 50th nationally. Those numbers drive turnover, agency
+> problem: Indiana staffs 29.6% below its own residents' assessed need and ranks 50th
+> nationally on acuity-adjusted hours. Those numbers drive turnover, agency
 > spend, survey deficiencies, and litigation exposure — all of which cost more than the
 > staffing would have.
 >

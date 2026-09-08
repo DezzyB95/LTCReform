@@ -23,7 +23,10 @@ that 21 public hospitals kept roughly 46% of the $5.6 billion those homes genera
 more than $2.6 billion diverted away from nursing home care and spent on hospital
 buildings, renovations, equipment, ambulances, and technology.
 
-- Source: IndyStar "Careless" investigation (Emily Hopkins / Tony Cook), summarized by
+- Source: IndyStar's investigation by Tony Cook, Tim Evans and Emily Hopkins, published
+  March 2025 as a continuation of their 2020 "Careless" series. Attribute it that way —
+  "Careless" alone refers to the 2020 reporting, which documented over $1 billion.
+  Summarized by
   [Becker's Hospital Review](https://www.beckershospitalreview.com/post-acute/indiana-hospitals-divert-2-6b-in-medicaid-from-nursing-homes-report/),
   [Newsweek](https://www.newsweek.com/2-6-billion-medicaid-funds-diverted-indiana-care-homes-report-2046425),
   and [Journalist's Resource](https://journalistsresource.org/health/nursing-homes-dollars-diverted-county-hospitals-indiana/).
@@ -38,12 +41,24 @@ keep it."
 - Indiana ranks **50th out of 50 states and D.C.** for total nurse staffing hours per
   resident after adjusting for how sick residents are — a drop from an already poor 2020
   ranking. (IndyStar analysis of federal payroll-based staffing data.)
-- **88% of Indiana nursing homes** provided less staffing than needed to meet their own
-  residents' assessed clinical needs, per Q1 2026 federal data; Indiana averages **0.66
-  RN hours per resident day**. Nationally, nearly 9 in 10 nursing homes are understaffed.
-  Source: [Long Term Care Community Coalition, Q1 2026 staffing alert](https://nursinghome411.org/alert-staffing-q1-2026/).
-- Indiana ranked 48th among states on the AARP long-term services and supports scorecard
-  for choice of options and providers. Source: [AARP Indiana](https://www.aarp.org/states/indiana/).
+- Acuity-adjusted, Indiana provides **3.51 total nurse staffing hours per resident day
+  against a national average of 3.76** — short in all three roles (RN, LPN, aide).
+  (IndyStar analysis of federal payroll-based journal data, March 2025.)
+- Indiana staffs **29.6% below its own residents' expected need** and ranks among the ten
+  worst states for overall staffing. Nationally, **90.2% of nursing homes** report
+  staffing below expected levels; the median home falls 24.9% short on total nurse
+  staffing and 42.3% short on RN staffing. Source: [Long Term Care Community Coalition,
+  Q1 2026 staffing alert](https://nursinghome411.org/alert-staffing-q1-2026/).
+
+**Do not cite Indiana's RN hours per resident day on its own.** Indiana sits near the
+national RN average, so that single number reads as unremarkable and invites a rebuttal
+that misses the point. Indiana's deficit is in *total* staffing and in staffing measured
+against resident need — use the acuity-adjusted figures above instead.
+
+**Do not cite the AARP LTSS scorecard.** Its most recent edition (2023) ranks Indiana
+**27th overall**, up from 41st in 2020, and ranks Indiana **1st in the nation** for
+age-friendly care. An older, worse AARP number is out of date, and citing it hands a
+critic an easy correction.
 
 **Say it as:** "Fiftieth. Not in the bottom ten. Fiftieth."
 
