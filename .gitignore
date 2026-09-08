@@ -1,0 +1,6 @@
+# Never commit contact logs or anything identifying a worker or resident
+contacts*
+contact-log*
+*intake*
+*private*
+.DS_Store
