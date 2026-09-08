@@ -1,5 +1,8 @@
 # Facebook Posts — Ready to Publish
 
+> **Paste-ready versions of every post below live in [`facebook-posts/`](facebook-posts/00-INDEX.md)**
+> — plain text, no markdown, one file per post. This file is the annotated source.
+
 Primary platform. Indiana LTC workers and families over 35 are here.
 
 **Format rules:** first line must work as the preview line. No link in the body of a post

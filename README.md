@@ -17,8 +17,9 @@ And one frame nobody else in Indiana is running:
 1. **`campaign/09-LEGAL-SAFETY.md`** — read this first, before anything is posted.
    Includes the restrictions that apply while employment litigation is active.
 2. **`campaign/00-STRATEGY.md`** — audiences, goals, voice, the 90-day arc.
-3. **`campaign/01-MESSAGE-PLATFORM.md`** — every verified fact and how to say it.
-4. **`campaign/02-CONTENT-CALENDAR.md`** — the 8-week launch schedule.
+3. **`campaign/facebook-posts/00-INDEX.md`** — the posts themselves, ready to copy and paste.
+4. **`campaign/01-MESSAGE-PLATFORM.md`** — every verified fact and how to say it.
+5. **`campaign/02-CONTENT-CALENDAR.md`** — the 8-week launch schedule.
 
 ## Contents
 
@@ -27,7 +28,8 @@ And one frame nobody else in Indiana is running:
 | `campaign/00-STRATEGY.md` | Positioning, audiences, goals, content mix, the 5 recurring series |
 | `campaign/01-MESSAGE-PLATFORM.md` | Core message, three pillars, sourced proof points, language rules, rebuttals |
 | `campaign/02-CONTENT-CALENDAR.md` | 8-week day-by-day calendar plus the sustainable weekly template |
-| `campaign/03-POSTS-FACEBOOK.md` | ~20 ready-to-publish Facebook posts, plus group-posting versions |
+| `campaign/facebook-posts/` | **Paste-ready Facebook posts** — 29 plain-text files, one per post, plus first comments, image specs and alt text. Start at `00-INDEX.md`. |
+| `campaign/03-POSTS-FACEBOOK.md` | Annotated source for the Facebook posts |
 | `campaign/04-POSTS-VIDEO.md` | 10 TikTok/Reels scripts, hooks, comment strategy |
 | `campaign/05-POSTS-SHORTFORM.md` | 6 Instagram carousels, Bluesky/X threads, 3 LinkedIn posts |
 | `campaign/08-GRAPHICS-BRIEFS.md` | Visual identity, palette, 6 reusable templates, specs, accessibility |
