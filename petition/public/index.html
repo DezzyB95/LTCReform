@@ -346,6 +346,7 @@
 </style>
 
 <div class="wrap">
+  <div id="banner" hidden style="background:var(--slate);color:var(--ground);padding:10px 16px;margin:0 -20px;font-family:var(--display);font-weight:600;font-size:15px;text-align:center"></div>
   <header class="mast">
     <div class="wordmark">Together Network · Indiana long-term care reform</div>
     <nav aria-label="Sections">
@@ -875,6 +876,7 @@
         <p class="eyebrow">Read before quoting</p>
         <p class="disc" style="margin-top:10px">Facts on this page were verified as of September 9, 2026 against the sources listed. Federal and state rules in this area changed repeatedly over the last twenty-four months; re-verify anything time-sensitive before relying on it. This page contains legal and policy information, not legal advice. It names no facility as a wrongdoer and asks for no resident information. Corrections are published, dated, and never made silently.</p>
         <p class="disc" style="margin-top:12px">Together Network is a volunteer project of Indiana long-term care workers, former workers, and families. It is not a union, a law firm, or a 501(c)(3), and it accepts no money in its first ninety days.</p>
+        <p class="disc" style="margin-top:12px"><a href="/privacy">What we collect and how it is used</a> · Every signature is delivered to the coalition at the moment it is made, and every receipt email carries a link to remove your details.</p>
       </div>
     </div>
   </footer>
@@ -925,7 +927,8 @@
     return fetch("/api/stats", { headers: { accept: "application/json" } }).then(function (r) { return r.json(); }).then(function (d) {
       if (!d || !d.ok) throw new Error("bad");
       API_OK = true;
-      renderStats(d.total, d.goal, d.byCounty.length, "Live count of online signatures, plus paper sheets as they are verified. Updated " + new Date(d.updated).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + ".");
+      renderStats(d.total, d.goal, d.byCounty.length, "Live count: " + fmt(d.online) + " online" + (d.paper ? " and " + fmt(d.paper) + " on paper sheets" : "") + (d.confirmed ? ", " + fmt(d.confirmed) + " confirmed by email" : "") + ". Updated " + new Date(d.updated).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + ".");
+      if (d.banner) { $("banner").textContent = d.banner; $("banner").hidden = false; }
     }).catch(function () { /* static hosting or offline: keep the configured tally */ });
   }
   function loadWall() {
@@ -1088,7 +1091,14 @@
         btn.disabled = false; btn.textContent = "Add my signature";
         if (res.d && res.d.ok) {
           try { localStorage.removeItem("cfp-draft"); } catch (e) {}
-          $("done-ok-text").textContent = "Signature #" + fmt(res.d.total) + " on the petition" + (v.email ? ". A receipt is on its way to " + v.email + "." : ".") + ($("f-join").checked ? " The coalition will reach you from a personal channel." : "");
+          var legText = "";
+          if (res.d.districts) {
+            var L = res.d.legislators || {};
+            legText = " Your address is in House District " + res.d.districts.house + " and Senate District " + res.d.districts.senate + ".";
+            var names = [L.house, L.senate].filter(Boolean).map(function (l) { return (l.chamber === "House" ? "Rep. " : "Sen. ") + l.name; });
+            if (names.length) legText += " Your legislators: " + names.join(" and ") + ".";
+          }
+          $("done-ok-text").textContent = "Signature #" + fmt(res.d.total) + " on the petition, sent to the coalition" + (v.email ? ". Check " + v.email + " for a confirmation link." : ".") + legText + ($("f-join").checked ? " The coalition will reach you from a personal channel." : "");
           $("done-ok").style.display = "block"; done.classList.remove("show");
           form.querySelectorAll("input, select").forEach(function (el) { if (el.type === "checkbox") el.checked = false; else if (el.id !== "f-website") el.value = ""; });
           loadStats(); loadWall();
