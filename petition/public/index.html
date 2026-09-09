@@ -373,9 +373,9 @@
     <aside class="status" aria-label="Campaign status">
       <div class="row">
         <div class="cell">
-          <div class="eyebrow">Verified signatures</div>
+          <div class="eyebrow">Signatures</div>
           <div class="big num" id="tally">0</div>
-          <div class="sub" id="tally-sub">Goal <span class="num" id="goal">1,000</span> for delivery on Organization Day</div>
+          <div class="sub" id="tally-sub">Goal <span class="num" id="goal">1,000</span> for delivery on Organization Day · <span id="county-count">0</span> of 92 counties</div>
           <div class="progress" aria-hidden="true"><i id="bar"></i></div>
         </div>
         <div class="cell">
@@ -637,6 +637,35 @@
             <li>Not partisan. The votes this needs are in both caucuses.</li>
           </ul>
         </div>
+        <form class="box" id="join-form" novalidate>
+          <h3>Join the coalition</h3>
+          <p class="muted" style="font-size:14.5px;margin-bottom:4px">Someone will reach you from a personal, non-work channel. Nothing here is published.</p>
+          <div class="field"><label for="j-name">Name</label><input id="j-name" name="name" autocomplete="name" required></div>
+          <div class="grid2">
+            <div class="field"><label for="j-email">Email <span class="opt">(personal)</span></label><input id="j-email" name="email" type="email" autocomplete="email"></div>
+            <div class="field"><label for="j-phone">Cell phone</label><input id="j-phone" name="phone" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="j-county">County</label><select id="j-county" name="county" required><option value="">Select</option></select></div>
+            <div class="field"><label for="j-role">I am</label><select id="j-role" name="role" required><option value="">Select</option></select></div>
+          </div>
+          <div class="field"><label for="j-employer">Where I work <span class="opt">(type only, never the name)</span></label>
+            <select id="j-employer" name="employer_type"><option value="">Prefer not to say</option><option>County-hospital-licensed nursing home</option><option>Privately owned nursing home</option><option>Assisted living or memory care</option><option>Home health or hospice</option><option>Staffing agency</option><option>Hospital</option><option>Not currently working in care</option><option>Not applicable</option></select></div>
+          <fieldset style="border:0;padding:0;margin:12px 0 0"><legend style="font-family:var(--display);font-size:13px;font-weight:600;padding:0">I can help by</legend>
+            <div id="j-help"></div>
+          </fieldset>
+          <label class="check"><input type="checkbox" id="j-testify" name="testify"><span>I would testify, or submit written testimony, when the Act is heard.</span></label>
+          <label class="check"><input type="checkbox" id="j-contact" name="county_contact"><span>I could be a quiet county contact: nothing public, just one person nearby who knows the process.</span></label>
+          <div class="grid2">
+            <div class="field"><label for="j-pref">Best way to reach me</label><select id="j-pref" name="contact_pref"><option value="">Either</option><option value="text">Text</option><option value="email">Email</option><option value="call">Phone call</option></select></div>
+          </div>
+          <div class="field"><label for="j-message">Anything else <span class="opt">(optional; no resident information, no facility names)</span></label><textarea id="j-message" name="message" rows="3" maxlength="1000"></textarea></div>
+          <div class="field" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true"><label for="j-website">Leave this blank</label><input id="j-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <label class="check"><input type="checkbox" id="j-consent" required><span>The coalition may contact me about this campaign. I understand it is not a union or a law firm, and that I can leave the list at any time.</span></label>
+          <p class="err" id="j-err" role="alert"></p>
+          <div class="actions"><button class="btn" type="submit">Join</button></div>
+          <p class="toast" id="j-toast"></p>
+        </form>
         <div class="box rights">
           <div class="n">30 days</div>
           <p style="font-size:15px;margin-top:6px">If something happens to you after you report a safety problem, the window to file a retaliation complaint with the Indiana Department of Labor is <b>30 calendar days</b> from the adverse action. Most people lose it appealing internally. Write everything down, with dates, on your own phone.</p>
@@ -697,7 +726,7 @@
 
       <form class="form" id="sign-form" novalidate>
         <h3>Sign online</h3>
-        <p class="intro">Your details are used only to compile the petition for delivery to the General Assembly. Nothing here is sent anywhere automatically; you choose how to send it in the last step.</p>
+        <p class="intro">Your signature is recorded the moment you submit it and sent to the coalition for delivery to the General Assembly. Your address is never published. If you give an email, you get a receipt.</p>
         <div class="field"><label for="f-name">Printed name</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-street">Residence address</label><input id="f-street" name="street" autocomplete="street-address" placeholder="Street" required></div>
         <div class="grid3">
@@ -716,10 +745,13 @@
               <option>A nursing home resident</option>
               <option>A family member of a resident</option>
               <option>An Indiana resident who supports this</option>
+              <option>An organization (consumer, aging, disability, labor, faith, legal, academic)</option>
             </select>
           </div>
           <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="personal, not work"></div>
         </div>
+        <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="personal cell"></div>
+        <div class="field" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true"><label for="f-website">Leave this blank</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
         <label class="check"><input type="checkbox" id="f-public"><span>Show my name publicly on the coalition's supporter list as first name, last initial, role, and county. Never your address. Current staff: think carefully; your employer can read it.</span></label>
         <label class="check"><input type="checkbox" id="f-join"><span>I want to join the Care Floor Coalition. Contact me at the email above from a personal, non-work channel.</span></label>
         <label class="check"><input type="checkbox" id="f-attest" required><span>I am a resident of Indiana, I am signing once, and the information above is true.</span></label>
@@ -728,8 +760,17 @@
           <button class="btn" type="submit">Add my signature</button>
           <button class="btn ghost" type="button" id="print-btn">Print a paper sheet instead</button>
         </div>
+        <div class="done ok" id="done-ok" aria-live="polite" style="display:none">
+          <h4 style="margin-top:16px">Recorded. Thank you.</h4>
+          <p id="done-ok-text" style="font-size:15px;margin-top:6px"></p>
+          <div class="ways" style="margin-top:12px">
+            <button class="btn ghost" type="button" id="print-mine-ok">Print a sheet to collect ten more</button>
+            <a class="btn ghost" href="https://iga.in.gov/legislative/find-legislators" rel="noopener">Find your two legislators</a>
+            <a class="btn ghost" href="#coalition">Join the coalition</a>
+          </div>
+        </div>
         <div class="done" id="done" aria-live="polite">
-          <h4 style="margin-top:16px">Your signature is ready. Send it one of these ways.</h4>
+          <h4 style="margin-top:16px">The signature server could not be reached. Your signature is ready to send another way.</h4>
           <pre id="record"></pre>
           <div class="ways">
             <a class="btn" id="mail-btn" href="#" hidden>Email it to the coalition</a>
@@ -743,6 +784,11 @@
           <b>Before you sign, if you work in a facility:</b> use a personal phone and personal email, never facility wifi or a work account. Do not send photos from inside a building or any resident information. Reading this page does not tell your employer anything; signing publicly might.
         </div>
       </form>
+    </div>
+    <div id="wall-wrap" style="margin-top:28px" hidden>
+      <p class="eyebrow">Supporters who chose to be listed</p>
+      <p class="muted small" style="margin-top:4px">First name, last initial, role, county. Nobody's address, ever.</p>
+      <div id="wall" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px"></div>
     </div>
   </section>
 
@@ -842,10 +888,10 @@
   // ---------------- organizer configuration ----------------
   // Update these when signatures are verified; republish the page.
   var CONFIG = {
-    verifiedSignatures: 0,          // paper + compiled online signatures actually verified
+    verifiedSignatures: 0,          // fallback tally when no server is behind the page; the live count comes from /api/stats
     goal: 1000,
-    tallyUpdated: "2026-09-09",     // ISO date of the last count
-    organizerEmail: "",             // personal intake address for online signatures; leave "" to hide the email button
+    tallyUpdated: "2026-09-09",     // ISO date of the fallback count
+    organizerEmail: "dezzerea70@gmail.com", // used only by the no-server fallback (mailto) when /api is unreachable
     organizationDay: "2026-11-17",
     adjournment: "2027-04-29",
     signatureRowsOnScreen: 3,
@@ -863,17 +909,41 @@
   }
 
   // ---------------- status strip ----------------
-  $("tally").textContent = fmt(CONFIG.verifiedSignatures);
-  $("goal").textContent = fmt(CONFIG.goal);
+  function renderStats(total, goal, counties, note) {
+    $("tally").textContent = fmt(total);
+    $("goal").textContent = fmt(goal);
+    $("county-count").textContent = fmt(counties);
+    $("tally-updated").textContent = note;
+    requestAnimationFrame(function () { $("bar").style.width = Math.min(100, 100 * total / goal) + "%"; });
+  }
+  renderStats(CONFIG.verifiedSignatures, CONFIG.goal, 0, "Tally as of " + new Date(CONFIG.tallyUpdated + "T00:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + ".");
   var dOrg = daysUntil(CONFIG.organizationDay), dAdj = daysUntil(CONFIG.adjournment);
   $("days-org").textContent = dOrg >= 0 ? fmt(dOrg) : "passed";
   $("days-adj").textContent = dAdj >= 0 ? fmt(dAdj) : "0";
-  $("tally-updated").textContent = "Tally updated " + new Date(CONFIG.tallyUpdated + "T00:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + ". Counted from verified paper sheets and compiled online signatures.";
-  requestAnimationFrame(function () { $("bar").style.width = Math.min(100, 100 * CONFIG.verifiedSignatures / CONFIG.goal) + "%"; });
+  var API_OK = false;
+  function loadStats() {
+    return fetch("/api/stats", { headers: { accept: "application/json" } }).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || !d.ok) throw new Error("bad");
+      API_OK = true;
+      renderStats(d.total, d.goal, d.byCounty.length, "Live count of online signatures, plus paper sheets as they are verified. Updated " + new Date(d.updated).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + ".");
+    }).catch(function () { /* static hosting or offline: keep the configured tally */ });
+  }
+  function loadWall() {
+    fetch("/api/wall", { headers: { accept: "application/json" } }).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || !d.ok || !d.rows.length) return;
+      $("wall").innerHTML = d.rows.map(function (r) { return '<span style="border:1px solid var(--rule-2);background:var(--panel);border-radius:3px;padding:6px 10px;font-size:14px"><b style="font-family:var(--display)">' + esc(r.name) + '</b> · ' + esc(r.role) + ' · ' + esc(r.county) + '</span>'; }).join("");
+      $("wall-wrap").hidden = false;
+    }).catch(function () {});
+  }
+  loadStats(); loadWall();
 
-  // ---------------- county select ----------------
-  var sel = $("f-county");
-  COUNTIES.forEach(function (c) { var o = document.createElement("option"); o.value = c; o.textContent = c; sel.appendChild(o); });
+  // ---------------- selects ----------------
+  ["f-county", "j-county"].forEach(function (id) {
+    var sel = $(id); COUNTIES.forEach(function (c) { var o = document.createElement("option"); o.value = c; o.textContent = c; sel.appendChild(o); });
+  });
+  Array.prototype.forEach.call($("f-role").options, function (opt) { if (opt.value) { var o = document.createElement("option"); o.value = opt.value; o.textContent = opt.textContent; $("j-role").appendChild(o); } });
+  var HELP = ["Collect paper signatures in my county", "Be a quiet county contact for other workers", "Contact my legislators", "Testify or submit written testimony", "Host a listening session", "Share my story (with written consent, later)", "Help with public records requests", "Review the bill or the data", "Print, meeting space, or other support"];
+  $("j-help").innerHTML = HELP.map(function (h, i) { return '<label class="check" style="margin-top:6px"><input type="checkbox" name="help" value="' + esc(h) + '" id="j-help-' + i + '"><span>' + esc(h) + '</span></label>'; }).join("");
 
   // ---------------- signature rows ----------------
   function rows(n, start, fill) {
@@ -1009,14 +1079,69 @@
     ].join("\n");
     record.textContent = txt;
     lastFill = { name: v.name, addr: v.street + ", " + v.city + " " + v.zip, county: v.county, date: dateStr };
-    var mail = $("mail-btn");
-    if (CONFIG.organizerEmail) {
-      mail.hidden = false; $("no-mail-note").hidden = true;
-      mail.href = "mailto:" + encodeURIComponent(CONFIG.organizerEmail) + "?subject=" + encodeURIComponent("Care Floor Petition signature — " + v.county + " County") + "&body=" + encodeURIComponent(txt);
-    } else { mail.hidden = true; $("no-mail-note").hidden = false; }
-    done.classList.add("show");
-    toast.textContent = "";
-    done.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = "Recording…";
+    var payload = { name: v.name, street: v.street, city: v.city, zip: v.zip, county: v.county, role: v.role, email: v.email, phone: $("f-phone").value.trim(), website: $("f-website").value, attest: true, public_listing: $("f-public").checked, join_coalition: $("f-join").checked };
+    fetch("/api/sign", { method: "POST", headers: { "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(payload) })
+      .then(function (r) { return r.json().then(function (d) { return { status: r.status, d: d }; }); })
+      .then(function (res) {
+        btn.disabled = false; btn.textContent = "Add my signature";
+        if (res.d && res.d.ok) {
+          try { localStorage.removeItem("cfp-draft"); } catch (e) {}
+          $("done-ok-text").textContent = "Signature #" + fmt(res.d.total) + " on the petition" + (v.email ? ". A receipt is on its way to " + v.email + "." : ".") + ($("f-join").checked ? " The coalition will reach you from a personal channel." : "");
+          $("done-ok").style.display = "block"; done.classList.remove("show");
+          form.querySelectorAll("input, select").forEach(function (el) { if (el.type === "checkbox") el.checked = false; else if (el.id !== "f-website") el.value = ""; });
+          loadStats(); loadWall();
+          $("done-ok").scrollIntoView({ behavior: "smooth", block: "nearest" });
+        } else {
+          err.textContent = (res.d && res.d.error) || "The signature could not be recorded. Try again, or sign on paper."; err.classList.add("show");
+        }
+      })
+      .catch(function () {
+        // No server behind this page (static copy or artifact preview): hand the signer the record to send another way.
+        btn.disabled = false; btn.textContent = "Add my signature";
+        var mail = $("mail-btn");
+        if (CONFIG.organizerEmail) {
+          mail.hidden = false; $("no-mail-note").hidden = true;
+          mail.href = "mailto:" + encodeURIComponent(CONFIG.organizerEmail) + "?subject=" + encodeURIComponent("Care Floor Petition signature — " + v.county + " County") + "&body=" + encodeURIComponent(txt);
+        } else { mail.hidden = true; $("no-mail-note").hidden = false; }
+        $("done-ok").style.display = "none";
+        done.classList.add("show");
+        toast.textContent = "";
+        done.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+  });
+  $("print-mine-ok").addEventListener("click", function () { printSheet(lastFill); });
+
+  // ---------------- coalition join ----------------
+  var jform = $("join-form"), jerr = $("j-err"), jtoast = $("j-toast");
+  jform.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = { name: $("j-name").value.trim(), email: $("j-email").value.trim(), phone: $("j-phone").value.trim(), county: $("j-county").value, role: $("j-role").value, employer_type: $("j-employer").value, help: Array.prototype.map.call(jform.querySelectorAll('input[name="help"]:checked'), function (c) { return c.value; }), testify: $("j-testify").checked, county_contact: $("j-contact").checked, contact_pref: $("j-pref").value, message: $("j-message").value.trim(), consent: $("j-consent").checked, website: $("j-website").value };
+    var missing = [];
+    if (v.name.length < 2) missing.push("your name");
+    if (!v.email && !v.phone) missing.push("an email or a cell phone");
+    if (v.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) missing.push("a valid email");
+    if (!v.county) missing.push("county");
+    if (!v.role) missing.push("who you are");
+    if (!v.consent) missing.push("the consent checkbox");
+    if (missing.length) { jerr.textContent = "Still needed: " + missing.join(", ") + "."; jerr.classList.add("show"); return; }
+    jerr.classList.remove("show");
+    var jb = jform.querySelector('button[type="submit"]'); jb.disabled = true; jb.textContent = "Joining…";
+    fetch("/api/join", { method: "POST", headers: { "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(v) })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        jb.disabled = false; jb.textContent = "Join";
+        if (d && d.ok) {
+          jtoast.textContent = "You are in. Someone will reach you from a personal, non-work channel" + (v.email ? "; a welcome note is on its way to " + v.email : "") + ".";
+          jform.querySelectorAll("input, select, textarea").forEach(function (el) { if (el.type === "checkbox") el.checked = false; else if (el.id !== "j-website") el.value = ""; });
+          loadStats();
+        } else { jerr.textContent = (d && d.error) || "The sign-up could not be saved. Try again."; jerr.classList.add("show"); }
+      })
+      .catch(function () {
+        jb.disabled = false; jb.textContent = "Join";
+        jerr.textContent = "The coalition server could not be reached from this copy of the page. " + (CONFIG.organizerEmail ? "Email " + CONFIG.organizerEmail + " from a personal account instead." : "Try again later, or sign the petition and check the coalition box."); jerr.classList.add("show");
+      });
   });
   $("copy-btn").addEventListener("click", function () {
     var t = record.textContent;

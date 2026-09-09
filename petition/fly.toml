@@ -1,0 +1,24 @@
+# Fly.io deployment. See README.md, "Deploy on Fly.io".
+app = "care-floor-petition"
+primary_region = "ord"
+
+[build]
+
+[env]
+  PORT = "3000"
+  DATA_DIR = "/data"
+
+[mounts]
+  source = "petition_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
