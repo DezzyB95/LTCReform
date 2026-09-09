@@ -771,10 +771,11 @@
           </div>
         </div>
         <div class="done" id="done" aria-live="polite">
-          <h4 style="margin-top:16px">The signature server could not be reached. Your signature is ready to send another way.</h4>
+          <h4 style="margin-top:16px" id="done-fallback-title">Your signature is ready. Send it to the coalition.</h4>
+          <p class="small muted" id="done-fallback-note">This copy of the page has no signature server behind it, so the record below goes to the coalition by email. Press the button, then press send in your mail app.</p>
           <pre id="record"></pre>
           <div class="ways">
-            <a class="btn" id="mail-btn" href="#" hidden>Email it to the coalition</a>
+            <a class="btn clay" id="mail-btn" href="#" hidden>Email it to the coalition (dezzerea70@gmail.com)</a>
             <button class="btn ghost" type="button" id="copy-btn">Copy the text</button>
             <button class="btn ghost" type="button" id="print-mine">Print a sheet with my line filled in</button>
           </div>
@@ -876,7 +877,7 @@
         <p class="eyebrow">Read before quoting</p>
         <p class="disc" style="margin-top:10px">Facts on this page were verified as of September 9, 2026 against the sources listed. Federal and state rules in this area changed repeatedly over the last twenty-four months; re-verify anything time-sensitive before relying on it. This page contains legal and policy information, not legal advice. It names no facility as a wrongdoer and asks for no resident information. Corrections are published, dated, and never made silently.</p>
         <p class="disc" style="margin-top:12px">Together Network is a volunteer project of Indiana long-term care workers, former workers, and families. It is not a union, a law firm, or a 501(c)(3), and it accepts no money in its first ninety days.</p>
-        <p class="disc" style="margin-top:12px"><a href="/privacy">What we collect and how it is used</a> · Every signature is delivered to the coalition at the moment it is made, and every receipt email carries a link to remove your details.</p>
+        <p class="disc" style="margin-top:12px"><a href="privacy.html">What we collect and how it is used</a> · Every signature is delivered to the coalition at the moment it is made, and every receipt email carries a link to remove your details.</p>
       </div>
     </div>
   </footer>
