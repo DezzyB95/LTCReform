@@ -1,0 +1,1034 @@
+<title>The Care Floor Petition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #F7F5F1;
+    --panel: #FFFFFF;
+    --panel-2: #EFECE5;
+    --ink: #1C1C1A;
+    --ink-2: #5B5A55;
+    --ink-3: #8A877E;
+    --rule: #D9D5CC;
+    --rule-2: #C4BFB3;
+    --slate: #2E4A62;
+    --slate-2: #3F6484;
+    --slate-soft: #D9E2EA;
+    --clay: #A8503C;
+    --clay-soft: #EFD9D2;
+    --neutral-bar: #A6A399;
+    --focus: #2E4A62;
+    --display: "Archivo", "Archivo Narrow", "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Sans 3", "Source Sans Pro", "Segoe UI", Roboto, sans-serif;
+    --max: 1120px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #171715;
+      --panel: #1F1F1D;
+      --panel-2: #262624;
+      --ink: #ECE9E2;
+      --ink-2: #B5B2A9;
+      --ink-3: #8C8981;
+      --rule: #33322F;
+      --rule-2: #46443F;
+      --slate: #8FAEC9;
+      --slate-2: #A9C0D6;
+      --slate-soft: #26374A;
+      --clay: #D4826B;
+      --clay-soft: #47302A;
+      --neutral-bar: #6E6C65;
+      --focus: #8FAEC9;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #171715;
+    --panel: #1F1F1D;
+    --panel-2: #262624;
+    --ink: #ECE9E2;
+    --ink-2: #B5B2A9;
+    --ink-3: #8C8981;
+    --rule: #33322F;
+    --rule-2: #46443F;
+    --slate: #8FAEC9;
+    --slate-2: #A9C0D6;
+    --slate-soft: #26374A;
+    --clay: #D4826B;
+    --clay-soft: #47302A;
+    --neutral-bar: #6E6C65;
+    --focus: #8FAEC9;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    padding-inline: 20px;
+    padding-block: 0 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--slate); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--slate-2); }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  h1, h2, h3, h4 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(34px, 5.2vw, 58px); font-weight: 800; line-height: 1.02; }
+  h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 700; line-height: 1.15; }
+  h3 { font-size: 20px; font-weight: 700; line-height: 1.25; }
+  h4 { font-size: 17px; font-weight: 700; }
+  p { margin: 0; }
+  .prose p + p { margin-top: 0.85em; }
+  .prose { max-width: 66ch; }
+  .lede { font-size: 20px; line-height: 1.45; color: var(--ink); max-width: 60ch; }
+  .muted { color: var(--ink-2); }
+  .small { font-size: 14px; }
+  .eyebrow {
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .num { font-family: var(--display); font-variant-numeric: tabular-nums; }
+  .wrap { max-width: var(--max); margin-inline: auto; }
+  .src { font-size: 13px; color: var(--ink-3); line-height: 1.4; }
+  .src a { color: var(--ink-2); }
+  hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+
+  /* ---------- masthead ---------- */
+  .mast {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    padding-block: 18px 14px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .wordmark { font-family: var(--display); font-weight: 600; font-size: 15px; letter-spacing: 0.02em; }
+  .mast nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+  .mast nav a { color: var(--ink-2); text-decoration: none; }
+  .mast nav a:hover { color: var(--ink); text-decoration: underline; }
+
+  .hero { padding-block: 40px 28px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr); gap: 32px 56px; align-items: end; }
+  .hero .lede { margin-top: 18px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+  .btn {
+    font-family: var(--display); font-weight: 600; font-size: 15px;
+    padding: 11px 18px; border-radius: 3px; border: 1px solid var(--slate);
+    background: var(--slate); color: var(--ground); cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px; line-height: 1;
+  }
+  .btn:hover { background: var(--slate-2); border-color: var(--slate-2); color: var(--ground); }
+  .btn.ghost { background: transparent; color: var(--slate); }
+  .btn.ghost:hover { background: var(--slate-soft); color: var(--ink); }
+  .btn.clay { background: var(--clay); border-color: var(--clay); }
+  .btn.clay:hover { background: var(--clay); filter: brightness(1.08); }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+  /* status strip */
+  .status { border: 1px solid var(--rule-2); background: var(--panel); border-radius: 4px; overflow: hidden; }
+  .status .row { display: grid; grid-template-columns: 1fr 1fr; }
+  .status .cell { padding: 14px 16px; border-bottom: 1px solid var(--rule); }
+  .status .row .cell:first-child { border-right: 1px solid var(--rule); }
+  .status .cell:last-child { border-bottom: 0; }
+  .status .big { font-family: var(--display); font-size: 34px; font-weight: 700; line-height: 1; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .status .sub { font-size: 13px; color: var(--ink-2); margin-top: 4px; }
+  .progress { height: 6px; background: var(--panel-2); border-radius: 3px; margin-top: 10px; overflow: hidden; }
+  .progress i { display: block; height: 100%; background: var(--slate); width: 0; border-radius: 3px; }
+
+  /* ---------- sections ---------- */
+  section.block { padding-block: 44px 40px; border-top: 1px solid var(--rule); }
+  .sec-head { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 16px 40px; margin-bottom: 26px; align-items: start; }
+  .sec-head .eyebrow { padding-top: 6px; }
+  .sec-head .lede { margin-top: 10px; font-size: 18px; color: var(--ink-2); }
+
+  /* stat tiles */
+  .tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule-2); background: var(--panel); border-radius: 4px; overflow: hidden; }
+  .tile { padding: 20px 18px 16px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 8px; min-height: 100%; }
+  .tile:last-child { border-right: 0; }
+  .tile .n { font-family: var(--display); font-size: clamp(38px, 4vw, 50px); font-weight: 800; line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--slate); }
+  .tile .n.alert { color: var(--clay); }
+  .tile .t { font-size: 15px; line-height: 1.35; flex: 1; }
+  .tile .src { margin-top: auto; }
+
+  /* charts */
+  .charts { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+  .chart { border: 1px solid var(--rule-2); background: var(--panel); border-radius: 4px; padding: 18px 18px 14px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .chart h3 { font-size: 17px; }
+  .chart .sub { font-size: 14px; color: var(--ink-2); }
+  .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 6px; }
+  .legend .sw-bill { background: var(--slate); }
+  .legend .sw-ref { background: var(--neutral-bar); }
+  .legend .sw-alert { background: var(--clay); }
+  .chart details { font-size: 14px; }
+  .chart details summary { cursor: pointer; color: var(--ink-2); }
+  .chart table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+  .chart th, .chart td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); }
+  .chart td.n, .chart th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .tip {
+    position: fixed; pointer-events: none; z-index: 20; display: none;
+    background: var(--ink); color: var(--ground); font-size: 13px; line-height: 1.35;
+    padding: 8px 10px; border-radius: 3px; max-width: 260px;
+  }
+  .tip b { font-family: var(--display); }
+  .bar-hit { fill: transparent; cursor: default; }
+  .bar { rx: 0; }
+  .axis text, .cat text { fill: var(--ink-2); font-family: var(--body); font-size: 13px; }
+  .axis line { stroke: var(--rule); }
+  .val text { fill: var(--ink); font-family: var(--display); font-size: 13px; font-weight: 600; }
+  .dlabel { fill: var(--ground); font-family: var(--display); font-size: 13px; font-weight: 600; }
+
+  .roles { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+  .roles th, .roles td { padding: 7px 8px; border-bottom: 1px solid var(--rule); text-align: left; }
+  .roles th { font-family: var(--display); font-weight: 600; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+  .roles td.n, .roles th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .roles td.none { color: var(--clay); font-weight: 600; }
+
+  /* timeline */
+  .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .tl { position: relative; padding-left: 22px; }
+  .tl::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 1px; background: var(--rule-2); }
+  .tl h3 { margin-bottom: 14px; margin-left: -22px; }
+  .tl li { list-style: none; position: relative; padding-bottom: 16px; }
+  .tl li::before { content: ""; position: absolute; left: -20px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--ink-3); }
+  .tl li.done::before { background: var(--clay); }
+  .tl li.ahead::before { background: var(--slate); }
+  .tl li.now::before { background: var(--ground); border: 2px solid var(--slate); width: 7px; height: 7px; left: -21px; top: 7px; }
+  .tl ul { margin: 0; padding: 0; }
+  .tl .d { font-family: var(--display); font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+  .tl .w { display: block; color: var(--ink-2); font-size: 15px; }
+  .tl .w b { color: var(--ink); font-weight: 600; }
+
+  /* bill pillars */
+  .pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .pillar { border-top: 3px solid var(--slate); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .pillar .cite { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); font-family: var(--display); font-weight: 600; }
+  .pillar ul { margin: 0; padding-left: 18px; font-size: 15.5px; }
+  .pillar li + li { margin-top: 5px; }
+
+  /* bridge table */
+  .bridge { width: 100%; border-collapse: collapse; margin-top: 28px; font-size: 15.5px; }
+  .bridge th { text-align: left; font-family: var(--display); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); padding: 0 10px 10px; border-bottom: 1px solid var(--ink); }
+  .bridge td { padding: 12px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .bridge td:first-child { font-weight: 600; width: 34%; }
+  .bridge td:nth-child(2) { color: var(--ink-2); font-size: 13px; width: 16%; font-family: var(--display); }
+  .bridge tr:hover td { background: var(--panel); }
+
+  /* coalition */
+  .coal { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; }
+  .charter { counter-reset: r; margin: 0; padding: 0; }
+  .charter li { list-style: none; counter-increment: r; display: grid; grid-template-columns: 44px 1fr; gap: 6px 12px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .charter li::before { content: counter(r, decimal-leading-zero); font-family: var(--display); font-size: 26px; font-weight: 800; color: var(--slate); line-height: 1; grid-row: span 2; }
+  .charter b { font-family: var(--display); font-weight: 700; font-size: 16.5px; }
+  .charter span { color: var(--ink-2); font-size: 15px; }
+  .box { border: 1px solid var(--rule-2); background: var(--panel); border-radius: 4px; padding: 20px; }
+  .box h3 { margin-bottom: 10px; }
+  .box ul { margin: 0; padding-left: 18px; font-size: 15px; }
+  .box li + li { margin-top: 5px; }
+  .box + .box { margin-top: 16px; }
+  .rights { border-left: 3px solid var(--clay); padding-left: 16px; }
+  .rights .n { font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--clay); }
+
+  /* petition document */
+  .doc-wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr); gap: 36px; align-items: start; }
+  .doc { background: var(--panel); border: 1px solid var(--rule-2); border-radius: 4px; padding: 40px 44px; font-size: 16px; line-height: 1.55; }
+  .doc .doc-title { text-align: center; font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .doc .doc-sub { text-align: center; font-family: var(--display); font-weight: 600; font-size: 15px; margin-top: 8px; color: var(--ink-2); text-wrap: balance; }
+  .doc .to { margin-top: 26px; }
+  .doc .whereas { margin-top: 18px; }
+  .doc .whereas p { margin: 0; padding-left: 1.6em; text-indent: -1.6em; }
+  .doc .whereas p + p { margin-top: 10px; }
+  .doc .whereas b, .doc .pray > b { font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; }
+  .doc .pray { margin-top: 18px; }
+  .doc .pray ol { margin: 10px 0 0; padding-left: 26px; }
+  .doc .pray li + li { margin-top: 8px; }
+  .doc .close { margin-top: 18px; }
+  .doc .sigs { margin-top: 26px; }
+  .doc .sigs table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .doc .sigs th { font-family: var(--display); font-weight: 600; text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--ink); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .doc .sigs td { border-bottom: 1px solid var(--rule-2); height: 30px; padding: 0 4px; }
+  .doc .sigs .note { font-size: 12.5px; color: var(--ink-2); margin-top: 8px; }
+  .doc .foot { margin-top: 16px; font-size: 12px; color: var(--ink-3); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .screen-only-rows { display: none; }
+
+  /* sign form */
+  .form { background: var(--panel); border: 1px solid var(--rule-2); border-radius: 4px; padding: 22px; position: sticky; top: 16px; }
+  .form h3 { margin-bottom: 4px; }
+  .form .intro { font-size: 14.5px; color: var(--ink-2); margin-bottom: 14px; }
+  .field { display: flex; flex-direction: column; gap: 4px; margin-top: 12px; }
+  .field label { font-family: var(--display); font-size: 13px; font-weight: 600; }
+  .field label .opt { color: var(--ink-3); font-weight: 500; }
+  .field input, .field select, .field textarea {
+    font: inherit; font-size: 15.5px; color: var(--ink); background: var(--ground);
+    border: 1px solid var(--rule-2); border-radius: 3px; padding: 9px 10px; width: 100%;
+  }
+  .field input:focus, .field select:focus { border-color: var(--slate); outline: 2px solid var(--slate); outline-offset: 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid3 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; }
+  .check { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; margin-top: 12px; font-size: 14.5px; }
+  .check input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--slate); }
+  .form .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .err { color: var(--clay); font-size: 14px; margin-top: 10px; display: none; }
+  .err.show { display: block; }
+  .privacy { font-size: 13px; color: var(--ink-2); margin-top: 14px; border-top: 1px solid var(--rule); padding-top: 12px; }
+  .done { display: none; }
+  .done.show { display: block; }
+  .done pre { white-space: pre-wrap; font: 13.5px/1.45 var(--body); background: var(--ground); border: 1px solid var(--rule-2); border-radius: 3px; padding: 12px; margin: 12px 0; }
+  .done .ways { display: flex; flex-direction: column; gap: 8px; }
+  .toast { font-size: 14px; color: var(--slate); margin-top: 8px; min-height: 1.3em; }
+
+  /* rules */
+  .rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .rule-card { border-top: 1px solid var(--ink); padding-top: 14px; }
+  .rule-card h3 { font-size: 17px; margin-bottom: 8px; }
+  .rule-card p, .rule-card li { font-size: 15px; }
+  .rule-card ul { margin: 6px 0 0; padding-left: 18px; }
+  .rule-card li + li { margin-top: 4px; }
+  .rule-card .cite { font-size: 13px; color: var(--ink-3); margin-top: 8px; display: block; }
+  .callout { margin-top: 26px; border: 1px solid var(--rule-2); border-left: 4px solid var(--clay); background: var(--panel); padding: 16px 18px; border-radius: 3px; font-size: 15.5px; max-width: 76ch; }
+
+  /* deliver */
+  .steps { counter-reset: s; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; }
+  .steps li { list-style: none; counter-increment: s; display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; gap: 2px 12px; font-size: 15.5px; }
+  .steps li::before { content: counter(s); grid-row: 1 / span 2; font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1; color: var(--clay); }
+  .steps b { display: block; font-family: var(--display); font-weight: 700; margin-bottom: 3px; }
+  .steps .sub { color: var(--ink-2); }
+
+  footer { padding-top: 34px; border-top: 1px solid var(--ink); margin-top: 20px; }
+  footer .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  footer ol { padding-left: 20px; margin: 10px 0 0; font-size: 13.5px; color: var(--ink-2); }
+  footer li + li { margin-top: 4px; }
+  footer .disc { font-size: 13.5px; color: var(--ink-2); max-width: 66ch; }
+
+  @media (max-width: 900px) {
+    .hero, .charts, .timeline, .coal, .doc-wrap, .rules, .steps, footer .cols, .pillars { grid-template-columns: 1fr; }
+    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tile { border-bottom: 1px solid var(--rule); }
+    .tile:nth-child(2n) { border-right: 0; }
+    .tile:last-child { border-right: 1px solid var(--rule); grid-column: span 2; }
+    .sec-head { grid-template-columns: 1fr; gap: 6px; }
+    .form { position: static; }
+    .doc { padding: 26px 20px; }
+  }
+  @media (max-width: 520px) {
+    .tiles { grid-template-columns: 1fr; }
+    .tile, .tile:nth-child(2n), .tile:last-child { border-right: 0; grid-column: auto; }
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .status .row { grid-template-columns: 1fr; }
+    .status .row .cell:first-child { border-right: 0; }
+    .bridge td:nth-child(2) { display: none; }
+    .bridge th:nth-child(2) { display: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .progress i { transition: width 600ms ease-out; }
+  }
+
+  /* ---------- print: the paper petition only ---------- */
+  @media print {
+    body { background: #fff; color: #000; padding: 0; font-size: 11.5pt; }
+    body > *:not(#print-root) { display: none !important; }
+    #print-root { display: block !important; }
+    .doc { border: 0; padding: 0; background: #fff; color: #000; font-size: 11pt; }
+    .doc .sigs td { height: 34px; border-bottom: 1px solid #000; }
+    .doc .sigs th { border-bottom: 1px solid #000; }
+    .screen-only-rows { display: table-row-group; }
+    .doc .foot { color: #444; }
+    a { color: #000; text-decoration: none; }
+    @page { margin: 0.7in; size: letter; }
+  }
+  #print-root { display: none; }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="wordmark">Together Network · Indiana long-term care reform</div>
+    <nav aria-label="Sections">
+      <a href="#case">The case</a>
+      <a href="#timeline">The window</a>
+      <a href="#bill">The bill</a>
+      <a href="#coalition">The coalition</a>
+      <a href="#petition">Sign</a>
+      <a href="#how">How it works</a>
+      <a href="#deliver">Deliver it</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div>
+      <p class="eyebrow">Petition to the 125th Indiana General Assembly · 2027 session</p>
+      <h1 style="margin-top:10px">A floor under the care, and a floor under the people who give it.</h1>
+      <p class="lede">Indiana has no minimum direct care staffing standard for nursing homes. The federal one is repealed until at least 2034. This petition asks the General Assembly to pass the Indiana Nursing Home Direct Care Staffing and Accountability Act and to recognize the direct care workforce, through the Care Floor Coalition, as a party to how those homes are run.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#petition">Sign the petition</a>
+        <button class="btn ghost" type="button" id="print-top">Print a signature sheet</button>
+        <a class="btn ghost" href="#coalition">Join the coalition</a>
+      </div>
+    </div>
+    <aside class="status" aria-label="Campaign status">
+      <div class="row">
+        <div class="cell">
+          <div class="eyebrow">Verified signatures</div>
+          <div class="big num" id="tally">0</div>
+          <div class="sub" id="tally-sub">Goal <span class="num" id="goal">1,000</span> for delivery on Organization Day</div>
+          <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+        </div>
+        <div class="cell">
+          <div class="eyebrow">Days to Organization Day</div>
+          <div class="big num" id="days-org">—</div>
+          <div class="sub">Tuesday, November 17, 2026</div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="eyebrow">Session</div>
+        <div class="sub" style="font-size:14.5px;margin-top:6px">Reconvenes January 2027 as the long budget session. Must adjourn by <b class="num">April 29, 2027</b> · <span class="num" id="days-adj">—</span> days from today.</div>
+      </div>
+      <div class="cell">
+        <div class="sub" style="font-size:13px" id="tally-updated">Tally updated —</div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ===================== THE CASE ===================== -->
+  <section class="block" id="case">
+    <div class="sec-head">
+      <p class="eyebrow">The case, in five numbers</p>
+      <div>
+        <h2>The money and the care moved in opposite directions.</h2>
+        <p class="lede">Indiana draws more nursing facility supplemental Medicaid money than any other state and staffs its homes worse than any other state. Every figure below carries its source.</p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile">
+        <div class="n">50th</div>
+        <div class="t">of the 50 states and D.C. for total nurse staffing hours per resident, adjusted for how sick residents are.</div>
+        <div class="src">IndyStar analysis of federal payroll-based staffing data, March 18, 2025.</div>
+      </div>
+      <div class="tile">
+        <div class="n">$2.6B</div>
+        <div class="t">of $5.6 billion in supplemental Medicaid payments generated by Indiana nursing homes over about 15 years was kept by the county hospitals that hold their licenses.</div>
+        <div class="src">IndyStar, from records obtained after a 2022 public records lawsuit; summarized by Newsweek and Becker's, March 2025.</div>
+      </div>
+      <div class="tile">
+        <div class="n">88%</div>
+        <div class="t">of Indiana nursing homes staffed below what their own residents' assessed clinical needs required, Q1 2026.</div>
+        <div class="src">Long Term Care Community Coalition, Q1 2026 staffing alert.</div>
+      </div>
+      <div class="tile">
+        <div class="n alert">0.00</div>
+        <div class="t">certified nurse aide hours per resident day required by Indiana law. Indiana is one of 18 states with no direct care minimum at all.</div>
+        <div class="src">410 IAC 16.2-3.1-17; Consumer Voice, State Nursing Home Staffing Standards Summary Report.</div>
+      </div>
+      <div class="tile">
+        <div class="n alert">2034</div>
+        <div class="t">The federal minimum staffing standard was repealed effective February 2, 2026, and Congress barred enforcing one until after September 30, 2034.</div>
+        <div class="src">90 Fed. Reg. (Dec. 3, 2025) interim final rule; Public Law 119-21, § 71111.</div>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart" id="chart-hprd">
+        <h3>Direct care hours per resident day: what Indiana requires, what the Act requires, and the benchmarks</h3>
+        <p class="sub">Indiana's only statutory floor is for licensed nurses. The Act's second phase equals the repealed federal standard and stays below the 4.1-hour research benchmark.</p>
+        <div class="legend" aria-hidden="true"><span><i class="sw-alert"></i>Indiana law today</span><span><i class="sw-bill"></i>The Act</span><span><i class="sw-ref"></i>Reference standards</span></div>
+        <div id="hprd-svg"></div>
+        <details>
+          <summary>View as a table</summary>
+          <table>
+            <thead><tr><th>Standard</th><th class="n">Total hours / resident day</th><th>Status</th></tr></thead>
+            <tbody id="hprd-table"></tbody>
+          </table>
+        </details>
+        <table class="roles" aria-label="Role breakdown of the Act's staffing floor">
+          <thead><tr><th>Hours per resident day</th><th class="n">Indiana today</th><th class="n">Act, Jul 1 2027</th><th class="n">Act, Jul 1 2028</th></tr></thead>
+          <tbody>
+            <tr><td>Total direct care</td><td class="n none">none</td><td class="n">3.00</td><td class="n">3.48</td></tr>
+            <tr><td>Certified nurse aide</td><td class="n none">none</td><td class="n">2.10</td><td class="n">2.45</td></tr>
+            <tr><td>Licensed nurse (RN + LPN)</td><td class="n">0.50</td><td class="n">0.75</td><td class="n">0.90</td></tr>
+            <tr><td>Registered nurse</td><td class="n">8 hrs/day on site</td><td class="n">0.30</td><td class="n">0.55 + RN on site 24/7</td></tr>
+          </tbody>
+        </table>
+        <p class="src">Sources: 410 IAC 16.2-3.1-17; draft Act, IC 16-28-17-3; CMS final rule, May 2024 (repealed); CMS-commissioned staffing study, 2001 (4.1 total: 2.8 CNA, 0.75 RN, 0.55 LPN).</p>
+      </div>
+
+      <div class="chart" id="chart-money">
+        <h3>Where $5.6 billion went</h3>
+        <p class="sub">Supplemental Medicaid payments generated by roughly 500 Indiana nursing homes over about 15 years, as reported from county hospital records.</p>
+        <div id="money-svg"></div>
+        <div class="legend" aria-hidden="true"><span><i class="sw-alert"></i>Kept by 21 county hospitals</span><span><i class="sw-bill"></i>Reached the nursing homes</span></div>
+        <div class="prose" style="font-size:15px;margin-top:6px">
+          <p>A county hospital holds the license, which unlocks a higher government-owner Medicaid rate, roughly $108 more per resident per day on a base near $297. The hospital sends the state a transfer, the state draws about two federal dollars for each local one, and the hospital keeps most of what comes back. Seven of 22 county hospitals that answered a records request admitted keeping 66 to 70 percent.</p>
+        </div>
+        <details>
+          <summary>View as a table</summary>
+          <table>
+            <thead><tr><th>Share</th><th class="n">Amount</th><th class="n">Percent</th></tr></thead>
+            <tbody>
+              <tr><td>Kept by county hospitals</td><td class="n">$2.6B</td><td class="n">46%</td></tr>
+              <tr><td>Reached the nursing homes</td><td class="n">$3.0B</td><td class="n">54%</td></tr>
+              <tr><td>Generated</td><td class="n">$5.6B</td><td class="n">100%</td></tr>
+            </tbody>
+          </table>
+        </details>
+        <p class="src">Source: IndyStar "Careless" investigation (Cook, Hopkins), March 2025; rate figures as reported there. The Indiana Nursing Home Ledger, Sept. 2026, traces the mechanism.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TIMELINE ===================== -->
+  <section class="block" id="timeline">
+    <div class="sec-head">
+      <p class="eyebrow">The window</p>
+      <div>
+        <h2>How the floor disappeared, and the ten weeks that decide whether Indiana builds its own.</h2>
+        <p class="lede">2027 is the long budget session, where nursing home Medicaid reimbursement is actually set. A sponsor has to be found before Organization Day or this waits until 2028, a short non-budget session.</p>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl">
+        <h3>What happened to the federal standard</h3>
+        <ul>
+          <li class="done"><span class="d">May 2024</span><span class="w">CMS finalizes a minimum: <b>3.48 total hours</b>, 0.55 RN, 2.45 aide, RN on site 24/7.</span></li>
+          <li class="done"><span class="d">April 7, 2025</span><span class="w">A federal district court in Texas vacates the rule.</span></li>
+          <li class="done"><span class="d">July 4, 2025</span><span class="w">Public Law 119-21 bars CMS from enforcing it <b>until after September 30, 2034</b>.</span></li>
+          <li class="done"><span class="d">December 3, 2025</span><span class="w">CMS publishes an interim final rule repealing the hours and the 24/7 RN requirement.</span></li>
+          <li class="done"><span class="d">February 2, 2026</span><span class="w">Repeal takes effect. The old rule returns: one RN on site 8 hours a day. <b>Indiana never had a standard of its own.</b></span></li>
+        </ul>
+      </div>
+      <div class="tl">
+        <h3>What happens next in Indiana</h3>
+        <ul>
+          <li class="now"><span class="d">Now to mid-November 2026</span><span class="w"><b>The sponsor window.</b> Bill-drafting requests and sponsor conversations. Signatures collected, county by county.</span></li>
+          <li class="ahead"><span class="d">November 17, 2026</span><span class="w"><b>Organization Day.</b> The 125th General Assembly convenes to organize. Petition delivered to sponsors and committee chairs.</span></li>
+          <li class="ahead"><span class="d">January 2027</span><span class="w">Session reconvenes. Bills must be filed and heard in committee to survive the first-half deadlines.</span></li>
+          <li class="ahead"><span class="d">April 29, 2027</span><span class="w">Constitutional adjournment deadline for the odd-year session.</span></li>
+          <li class="ahead"><span class="d">July 1, 2027</span><span class="w">Effective date of the Act's first phase, if enacted. Same day long-stay residents return to fee-for-service Medicaid under HEA 1277.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="src" style="margin-top:12px">Dates from IC 2-2.1-1-2 and IC 2-2.1-1-3 and the coalition brief. Session dates can be adjusted at Organization Day; verify at iga.in.gov before relying on them.</p>
+  </section>
+
+  <!-- ===================== THE BILL ===================== -->
+  <section class="block" id="bill">
+    <div class="sec-head">
+      <p class="eyebrow">The bill</p>
+      <div>
+        <h2>The Indiana Nursing Home Direct Care Staffing and Accountability Act</h2>
+        <p class="lede">Drafted in Indiana bill format, affecting IC 16-22-15, IC 16-28-5-4, IC 16-28-9-3, and new chapters IC 16-28-17 through 16-28-20. Four parts, each written to stand alone if the bill is split.</p>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="cite">IC 16-28-17 · Staffing and acuity verification</span>
+        <h3>Sets a floor, then checks it in person.</h3>
+        <ul>
+          <li>3.00 total direct care hours per resident day from July 1, 2027; 3.48 from July 1, 2028, with 2.45 CNA hours and an RN on site around the clock.</li>
+          <li>No shift below 80% of the daily requirement; no averaging past 24 hours; no counting hours past 16 consecutive.</li>
+          <li>Acuity-based staffing above the minimum, recalculated monthly.</li>
+          <li>Annual unannounced acuity verification: a nurse or therapist surveyor watches real transfers, weighs residents, and interviews at least five aides privately. Thirty percent of surveys start nights or weekends.</li>
+          <li>Per-shift public posting of census, staff scheduled, staff actually working, and the resulting hours.</li>
+          <li>A direct care staffing committee in every building, at least half elected floor staff.</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="cite">IC 16-28-18 · Reports, investigations, systemic cause</span>
+        <h3>Protects the aide who speaks.</h3>
+        <ul>
+          <li>Anyone may report unsafe conditions, anonymously, without telling the facility first. Reporter identity is confidential.</li>
+          <li>The state must acknowledge in 2 business days, investigate on site within 2, 10, or 30 days by severity, and issue written findings within 60. It may not close a report on the facility's records alone.</li>
+          <li>Adverse action within 180 days of a report is presumed retaliation, rebuttable only by clear and convincing evidence.</li>
+          <li>A private right of action: reinstatement, double back pay, at least $10,000 liquidated damages, expungement, attorney's fees. Two-year window, no exhaustion required.</li>
+          <li><b>Systemic cause determination.</b> Before an aide is reported to the nurse aide registry, disciplined, or fired, the state must decide whether short staffing, missing equipment, a false assist level, or facility direction caused the act. If it did, the facility is cited instead.</li>
+          <li>Aides already on the registry may petition to expunge findings caused by those conditions, through July 1, 2030.</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="cite">IC 16-28-19 · Penalties</span>
+        <h3>Makes violation cost more than compliance.</h3>
+        <ul>
+          <li>Daily penalties of $1,000 to $10,000 per day for staffing deficits; $50,000 per person for retaliation; $100,000 for false staffing data.</li>
+          <li>An additional assessment equal to the money the facility saved by breaking the rule, plus 25 percent.</li>
+          <li>No waiving, reducing, or settling staffing and retaliation penalties. Correction does not erase the period of violation.</li>
+          <li>Penalties may not be paid from Medicaid money, charged to residents, or hidden in a related-party fee.</li>
+          <li>Owners, management companies, and landlords are jointly liable. Penalties fund a direct care restitution fund for wages, surveyors, and lifts.</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <span class="cite">IC 16-22-15 and IC 16-28-20 · The money</span>
+        <h3>Requires the money to reach the care.</h3>
+        <ul>
+          <li>County hospitals must spend at least 80 percent of the supplemental Medicaid payments a nursing home generates on direct care at that home.</li>
+          <li>Not on hospital construction, debt, related-party fees, marketing, lobbying, or reserves.</li>
+          <li>Annual public accounting, facility by facility, audited by the State Board of Accounts; diverted amounts repaid with interest; knowing violations treated as false claims.</li>
+          <li>Every Medicaid nursing facility: at least 70 percent of Medicaid revenue on direct care, 55 percent on direct care wages; audited cost reports with related-party disclosure, published.</li>
+          <li>A direct care rate adjustment that pays more to facilities that actually staff.</li>
+        </ul>
+      </div>
+    </div>
+
+    <table class="bridge">
+      <thead><tr><th>What the worker gets</th><th>Where in the Act</th><th>What the resident gets, on the same day</th></tr></thead>
+      <tbody>
+        <tr><td>The right to report short staffing or missed care without being written up, anonymously, to the state directly</td><td>IC 16-28-18-2, -4</td><td>Complaints that come from the people who actually saw the shift, investigated on site instead of closed on the facility's paperwork</td></tr>
+        <tr><td>The right to refuse a task the worker reasonably believes will endanger a resident</td><td>IC 16-28-18-4(a)</td><td>No one-person transfers of a two-person resident because the second person was never scheduled</td></tr>
+        <tr><td>Working lifts and correct slings, a 72-hour repair clock, and a log staff can read</td><td>IC 16-28-17-6</td><td>Fewer drops, fewer falls during transfer, fewer skin tears</td></tr>
+        <tr><td>An assist level that matches what the worker actually has to do, verified by a surveyor who watches</td><td>IC 16-28-17-6, -7</td><td>A care plan that tells the truth about how much help the resident needs, and staffing built on it</td></tr>
+        <tr><td>A hearing on systemic cause before a registry finding ends a career</td><td>IC 16-28-18-5</td><td>The cause gets cited and fixed instead of the aide being replaced by the next one facing the same shift</td></tr>
+        <tr><td>A seat on a staffing committee with a written answer to every recommendation</td><td>IC 16-28-17-10; IC 16-22-15-7</td><td>Staffing decisions made by people who were on the floor at 3 a.m.</td></tr>
+        <tr><td>No more than 16 consecutive hours counted, no routine mandatory overtime</td><td>IC 16-28-17-3(g)</td><td>Care from someone in their eighth hour, not their nineteenth</td></tr>
+      </tbody>
+    </table>
+    <p class="src" style="margin-top:10px">Section references are to the draft Act as attached to the coalition brief, September 2026. The worker protection chapter has essentially no fiscal note.</p>
+  </section>
+
+  <!-- ===================== COALITION ===================== -->
+  <section class="block" id="coalition">
+    <div class="sec-head">
+      <p class="eyebrow">The coalition</p>
+      <div>
+        <h2>The Care Floor Coalition</h2>
+        <p class="lede">An independent, Indiana-based, industry-wide coalition of the people who do direct care and the people who depend on it. Non-partisan. No dues. One argument: a resident's right only exists if someone can act on it without losing their job.</p>
+      </div>
+    </div>
+    <div class="coal">
+      <div>
+        <h3 style="margin-bottom:6px">The charter: five rights on the floor</h3>
+        <p class="muted" style="font-size:15px;margin-bottom:6px">Each right is drafted into the Act. Each one is written as a resident safety measure first.</p>
+        <ol class="charter">
+          <li><b>The right to report, and to be believed enough to be investigated.</b><span>Anonymous reports to the state, on-site investigation on a deadline, written findings, and a presumption of retaliation for 180 days afterward. For residents: a complaint line that produces a surveyor on the unit, not a phone call to the administrator.</span></li>
+          <li><b>The right to refuse an unsafe assignment and write it down.</b><span>Refusing a task the worker reasonably believes will endanger a resident is protected activity with a private right of action behind it. For residents: transfers done with the people and the machine the care plan says they need.</span></li>
+          <li><b>The right to accurate assist levels and working equipment.</b><span>A 250-pound resident, a dependent resident, a resident with two transfer falls in 90 days: two-person mechanical assist by presumption, rebuttable only by a therapist who watched. For residents: a care plan built on what is true, not what is billable or cheap.</span></li>
+          <li><b>The right to a systemic cause determination before the registry.</b><span>No nurse aide registry finding, discipline, or termination for an act caused by short staffing, missing equipment, a wrong assist level, or facility direction. The facility is cited instead. For residents: the cause gets fixed instead of the aide.</span></li>
+          <li><b>The right to a seat where staffing is decided.</b><span>A staffing committee in every building, at least half elected floor staff, with a written administrator response to every recommendation; a direct care employee on every county hospital's facility advisory committee. For residents: the people who know the hall have a vote on how it is staffed.</span></li>
+        </ol>
+      </div>
+      <div>
+        <div class="box">
+          <h3>Who joins</h3>
+          <ul>
+            <li>Current CNAs, QMAs, LPNs, RNs, restorative aides, and dietary, housekeeping, laundry, and activities staff in Indiana long-term care.</li>
+            <li>Former staff, who can say publicly what current staff cannot.</li>
+            <li>Residents and their families, the group legislators actually answer.</li>
+            <li>Consumer, aging, disability, labor, faith, legal, and academic organizations, as endorsing members with one bounded ask each.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>What it does between now and January</h3>
+          <ul>
+            <li>Collects and verifies petition signatures, county by county, and delivers them through each county's own legislators.</li>
+            <li>Runs know-your-rights education: NLRA §7 concerted activity, the 30-day IOSHA retaliation window, how to file a complaint the Ombudsman can verify.</li>
+            <li>Keeps a quiet county-contact network so a worker in trouble has one person nearby who knows the process.</li>
+            <li>Builds a testimony bench of former staff and families for the committee hearing.</li>
+            <li>Sends and tracks the fifteen public records requests in the Indiana Nursing Home Ledger.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>What it is not</h3>
+          <ul>
+            <li>Not a union and not a substitute for one. Members may organize under federal labor law; the coalition does not bargain.</li>
+            <li>Not legal advice, and not a place to send resident information, photos from inside a building, or work documents. Ever.</li>
+            <li>Not partisan. The votes this needs are in both caucuses.</li>
+          </ul>
+        </div>
+        <div class="box rights">
+          <div class="n">30 days</div>
+          <p style="font-size:15px;margin-top:6px">If something happens to you after you report a safety problem, the window to file a retaliation complaint with the Indiana Department of Labor is <b>30 calendar days</b> from the adverse action. Most people lose it appealing internally. Write everything down, with dates, on your own phone.</p>
+          <p class="src" style="margin-top:8px">Indiana DOL Whistleblower Protection Unit; federal OSHA §11(c) is also 30 days. General information, not legal advice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PETITION ===================== -->
+  <section class="block" id="petition">
+    <div class="sec-head">
+      <p class="eyebrow">The petition</p>
+      <div>
+        <h2>Sign it here, or print it and sign in ink.</h2>
+        <p class="lede">Paper is what gets delivered to the Statehouse. Online signatures are compiled onto the printed petition with a statement of how they were collected. If you can do both, do both.</p>
+      </div>
+    </div>
+    <div class="doc-wrap">
+      <article class="doc" id="petition-doc" aria-label="Petition text">
+        <div class="doc-title">Petition to the Indiana General Assembly</div>
+        <div class="doc-sub">For a state direct care staffing floor, protection of the caregivers who report, and accountability for nursing home Medicaid dollars</div>
+        <p class="to">To the Honorable Speaker and Members of the House of Representatives, and the Honorable President Pro Tempore and Members of the Senate, of the 125th General Assembly of the State of Indiana:</p>
+        <p style="margin-top:12px">The undersigned, residents of the State of Indiana, exercising the right secured by Article 1, Section 31 of the Constitution of the State of Indiana to instruct our representatives and to apply to the General Assembly for redress of grievances, respectfully represent:</p>
+        <div class="whereas">
+          <p><b>WHEREAS,</b> Indiana law sets no minimum number of certified nurse aide hours or total direct care hours per resident day in comprehensive care facilities, requiring only one-half hour of licensed nurse time per resident day under 410 IAC 16.2-3.1-17, and Indiana is one of eighteen states with no direct care staffing minimum of any kind;</p>
+          <p><b>WHEREAS,</b> an analysis of federal payroll-based staffing data published March 18, 2025 ranked Indiana fiftieth of the fifty states and the District of Columbia for total nurse staffing hours per resident after adjusting for resident acuity, and federal data for the first quarter of 2026 show that eighty-eight percent of Indiana nursing homes staffed below their residents' assessed needs;</p>
+          <p><b>WHEREAS,</b> the federal minimum staffing standard finalized in May 2024 was repealed effective February 2, 2026, and Public Law 119-21 bars its enforcement until after September 30, 2034, so that no federal floor will exist for the remainder of this decade unless the State of Indiana sets one;</p>
+          <p><b>WHEREAS,</b> county-owned hospitals hold the licenses to most Indiana nursing homes and, according to published investigative reporting drawing on records obtained through litigation, retained roughly $2.6 billion of $5.6 billion in supplemental Medicaid payments generated by those homes over approximately fifteen years, applying it to hospital construction, equipment, and operations rather than bedside care;</p>
+          <p><b>WHEREAS,</b> a resident's rights are exercised through the frontline caregiver, and Indiana's at-will employment law, together with a thirty-day window to file a retaliation complaint, leaves that caregiver exposed to discipline, termination, and nurse aide registry referral for acts and omissions caused by conditions the facility created; and</p>
+          <p><b>WHEREAS,</b> the safety of residents and the safety of the workers who care for them are one problem, and no resident right can be enforced by a worker who cannot act on it without losing their livelihood;</p>
+        </div>
+        <div class="pray">
+          <b>NOW, THEREFORE,</b> your petitioners respectfully pray that the General Assembly:
+          <ol>
+            <li>Introduce, hear in committee, and enact in the 2027 regular session the <b>Indiana Nursing Home Direct Care Staffing and Accountability Act</b>, adding IC 16-28-17, IC 16-28-18, IC 16-28-19, IC 16-28-20, and IC 16-22-15 to the Indiana Code and amending IC 16-28-5-4 and IC 16-28-9-3;</li>
+            <li>Establish thereby a minimum direct care staffing standard of 3.00 total hours per resident day beginning July 1, 2027 and 3.48 hours beginning July 1, 2028, including 2.45 certified nurse aide hours and a registered nurse on site twenty-four hours a day, with acuity-based staffing above the minimum, annual unannounced acuity verification surveys, and public posting of staffing on every shift;</li>
+            <li>Protect every direct care employee who reports an unsafe condition or refuses an unsafe assignment, through a rebuttable presumption of retaliation, a private right of action, and a systemic cause determination before any nurse aide registry finding, discipline, or termination for an act or omission caused by staffing below the standard, missing or inoperable equipment, an inaccurate assist level, or facility direction;</li>
+            <li>Provide that penalties for staffing and retaliation violations exceed the cost of compliance, are not reduced upon correction, are not paid from Medicaid funds or charged to residents, and are deposited in a direct care restitution fund;</li>
+            <li>Require county hospitals that hold nursing facility licenses to spend not less than eighty percent of the nursing facility supplemental Medicaid payments attributable to a facility on direct care at that facility, to file annual public facility-level accountings, and to repay diverted amounts; and</li>
+            <li>Recognize the direct care workforce as a party to nursing home policy in Indiana, by consulting the Care Floor Coalition and the facility direct care staffing committees created by the Act in the development of rules, reimbursement, and oversight affecting long-term care, and by inviting direct care workers, residents, and families to testify at any hearing on the Act.</li>
+          </ol>
+        </div>
+        <p class="close">Respectfully submitted by the undersigned residents of Indiana, each of whom has signed this petition once, in their own hand, on the date shown.</p>
+        <div class="sigs" aria-label="Signature lines">
+          <table>
+            <thead><tr><th style="width:24px">#</th><th>Signature</th><th>Printed name</th><th>Residence address (street, city, ZIP)</th><th>County</th><th style="width:70px">Date</th></tr></thead>
+            <tbody id="sig-rows"></tbody>
+            <tbody class="screen-only-rows" id="sig-rows-print"></tbody>
+          </table>
+          <p class="note">Signers must be residents of Indiana. Complete your own line in your own handwriting (a person with a disability may authorize assistance). Use your residence address, not a work address. One signature per person across all sheets.</p>
+        </div>
+        <div class="foot">
+          <span>Care Floor Coalition · Together Network · Indiana</span>
+          <span>Sheet ____ of ____ · Circulator: ____________________</span>
+        </div>
+      </article>
+
+      <form class="form" id="sign-form" novalidate>
+        <h3>Sign online</h3>
+        <p class="intro">Your details are used only to compile the petition for delivery to the General Assembly. Nothing here is sent anywhere automatically; you choose how to send it in the last step.</p>
+        <div class="field"><label for="f-name">Printed name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-street">Residence address</label><input id="f-street" name="street" autocomplete="street-address" placeholder="Street" required></div>
+        <div class="grid3">
+          <div class="field"><label for="f-city">City</label><input id="f-city" name="city" autocomplete="address-level2" required></div>
+          <div class="field"><label for="f-zip">ZIP</label><input id="f-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="10" required></div>
+          <div class="field"><label for="f-county">County</label><select id="f-county" name="county" required><option value="">Select</option></select></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><label for="f-role">I am</label>
+            <select id="f-role" name="role" required>
+              <option value="">Select</option>
+              <option>A current CNA / QMA in Indiana long-term care</option>
+              <option>A current LPN / RN in Indiana long-term care</option>
+              <option>Other current long-term care staff (dietary, housekeeping, laundry, activities, therapy)</option>
+              <option>A former long-term care worker</option>
+              <option>A nursing home resident</option>
+              <option>A family member of a resident</option>
+              <option>An Indiana resident who supports this</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="personal, not work"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="f-public"><span>Show my name publicly on the coalition's supporter list as first name, last initial, role, and county. Never your address. Current staff: think carefully; your employer can read it.</span></label>
+        <label class="check"><input type="checkbox" id="f-join"><span>I want to join the Care Floor Coalition. Contact me at the email above from a personal, non-work channel.</span></label>
+        <label class="check"><input type="checkbox" id="f-attest" required><span>I am a resident of Indiana, I am signing once, and the information above is true.</span></label>
+        <p class="err" id="err" role="alert"></p>
+        <div class="actions">
+          <button class="btn" type="submit">Add my signature</button>
+          <button class="btn ghost" type="button" id="print-btn">Print a paper sheet instead</button>
+        </div>
+        <div class="done" id="done" aria-live="polite">
+          <h4 style="margin-top:16px">Your signature is ready. Send it one of these ways.</h4>
+          <pre id="record"></pre>
+          <div class="ways">
+            <a class="btn" id="mail-btn" href="#" hidden>Email it to the coalition</a>
+            <button class="btn ghost" type="button" id="copy-btn">Copy the text</button>
+            <button class="btn ghost" type="button" id="print-mine">Print a sheet with my line filled in</button>
+          </div>
+          <p class="toast" id="toast"></p>
+          <p class="small muted" style="margin-top:10px" id="no-mail-note" hidden>The coalition's intake email is not set on this page yet. Copy the text and send it from a personal email address, or print and sign.</p>
+        </div>
+        <div class="privacy">
+          <b>Before you sign, if you work in a facility:</b> use a personal phone and personal email, never facility wifi or a work account. Do not send photos from inside a building or any resident information. Reading this page does not tell your employer anything; signing publicly might.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="block" id="how">
+    <div class="sec-head">
+      <p class="eyebrow">How a petition works at the Statehouse</p>
+      <div>
+        <h2>What a petition can do in Indiana, and what it cannot.</h2>
+        <p class="lede">Indiana has no citizen initiative or referendum. A petition cannot put a law on the ballot or force a vote. Its power is that a legislator presents it, it enters the record, it is referred to a committee, and every office that receives it counts the names from its own district.</p>
+      </div>
+    </div>
+    <div class="rules">
+      <div class="rule-card">
+        <h3>The right</h3>
+        <p>"No law shall restrain any of the inhabitants of the State from assembling together in a peaceable manner, to consult for their common good; nor from instructing their representatives; nor from applying to the General Assembly for redress of grievances."</p>
+        <span class="cite">Constitution of the State of Indiana, Article 1, Section 31. This petition is written as an instruction to representatives and an application for redress under that section.</span>
+      </div>
+      <div class="rule-card">
+        <h3>How it enters the chamber</h3>
+        <ul>
+          <li>A member of the House or Senate presents a petition or memorial. It is filed with that chamber's clerk (the Principal Clerk of the House, the Principal Secretary of the Senate) and referred by the presiding officer to a committee.</li>
+          <li>Senate standing rules require a petition or memorial to be reported on by the committee it is assigned to before any action is taken on it.</li>
+          <li>The likely committees for this subject are House Public Health and Senate Health and Provider Services.</li>
+        </ul>
+        <span class="cite">Standing Rules and Orders of the Senate; Rules of the House of Representatives, published each term at iga.in.gov. Confirm the current rule numbers with the Principal Clerk and Principal Secretary before delivery.</span>
+      </div>
+      <div class="rule-card">
+        <h3>The form each sheet follows</h3>
+        <ul>
+          <li>Identical petition text on every sheet, with sheet numbers and the circulator's name.</li>
+          <li>Each signer's signature, printed name, and residence address in the signer's own handwriting, the convention Indiana's statutory petitions require under IC 3-8-6-6, plus county and date on each line.</li>
+          <li>Indiana residents only, one signature per person, no notarization required.</li>
+          <li>Online signatures are printed as a schedule attached to the paper petition, with a statement of how and when they were collected.</li>
+        </ul>
+        <span class="cite">IC 3-8-6-6 governs candidate petitions, not legislative ones; its signer conventions are used here because they are what Indiana clerks are used to reading.</span>
+      </div>
+    </div>
+    <div class="callout">
+      <b>Two things to keep straight.</b> Ask family members and former staff to be the public face of delivery; a current employee's name on a cover letter is a risk the coalition should not ask anyone to take. And the petition is not a lawsuit or a records request: it asks for a law, it does not describe any facility, and it names no one as a wrongdoer.
+    </div>
+  </section>
+
+  <!-- ===================== DELIVER ===================== -->
+  <section class="block" id="deliver">
+    <div class="sec-head">
+      <p class="eyebrow">Deliver it</p>
+      <div>
+        <h2>Ninety-two counties, one hundred fifty legislators, one ask each.</h2>
+        <p class="lede">A thousand signatures in one box at the Statehouse is a photo. Ten signatures from a legislator's own district, handed to them by a constituent, is a conversation.</p>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><b>Find your two legislators.</b><span class="sub">One representative, one senator. Look them up by address at <a href="https://iga.in.gov/legislative/find-legislators" rel="noopener">iga.in.gov/legislative/find-legislators</a>. Note the district on your county's tally sheet.</span></li>
+      <li><b>Collect on paper, in your county.</b><span class="sub">Print sheets from this page. Break rooms are not the place; church halls, kitchen tables, family council meetings, and parking lots after shift are. Keep signed sheets in one folder; never photograph them at work.</span></li>
+      <li><b>Sort by district before Organization Day.</b><span class="sub">Copy each sheet. Group originals by the signers' House and Senate districts so each legislator receives the names from their own voters.</span></li>
+      <li><b>Ask a legislator to present it.</b><span class="sub">The one-page ask: "Will you present this petition and support a state direct care staffing standard in the 2027 session?" A phone call to the office beats email; a visit beats both. Bring a family member.</span></li>
+      <li><b>Deliver copies to the committee chairs and the sponsor.</b><span class="sub">House Public Health, Senate Health and Provider Services, and whichever member agrees to author the bill. Attach the coalition brief and the draft Act.</span></li>
+      <li><b>Log every response.</b><span class="sub">Name, district, party, date, what they said, and the follow-up. That spreadsheet is the most valuable thing this campaign produces, and the thing reporters ask for in January.</span></li>
+    </ol>
+    <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn" type="button" id="print-bottom">Print blank signature sheets</button>
+      <a class="btn ghost" href="#petition">Back to the petition</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="cols">
+      <div>
+        <p class="eyebrow">Sources</p>
+        <ol>
+          <li>IndyStar, Tony Cook and Emily Hopkins, "Careless" investigation; March 18, 2025 accounting of $2.6B of $5.6B retained by 21 county hospitals; Indiana ranked 50th for acuity-adjusted staffing. Summarized by Newsweek and Becker's Hospital Review, March 2025.</li>
+          <li>Long Term Care Community Coalition, staffing alert, Q1 2026 payroll-based journal data: 88% of Indiana homes below expected staffing.</li>
+          <li>Consumer Voice, State Nursing Home Staffing Standards Summary Report: eighteen states, Indiana included, with no direct care minimum.</li>
+          <li>410 IAC 16.2-3.1-17: 0.5 licensed nurse hours per resident day; RN 8 consecutive hours daily.</li>
+          <li>CMS, Medicare and Medicaid Programs; Repeal of Minimum Staffing Standards for Long-Term Care Facilities, interim final rule, 90 Fed. Reg., December 3, 2025, effective February 2, 2026; Public Law 119-21, § 71111.</li>
+          <li>Health and Hospital Corporation of Marion County v. Talevski, 599 U.S. 166 (2023).</li>
+          <li>Indiana Constitution, Art. 1 § 31; IC 2-2.1-1-2 and -3 (session dates); IC 3-8-6-6 (signer conventions); IC 5-14-3 (public records).</li>
+          <li>Indiana Department of Labor, IOSHA Whistleblower Protection Unit: 30-day filing window.</li>
+          <li>Draft Indiana Nursing Home Direct Care Staffing and Accountability Act; The Care Floor coalition brief; The Indiana Nursing Home Ledger, September 2026.</li>
+        </ol>
+      </div>
+      <div>
+        <p class="eyebrow">Read before quoting</p>
+        <p class="disc" style="margin-top:10px">Facts on this page were verified as of September 9, 2026 against the sources listed. Federal and state rules in this area changed repeatedly over the last twenty-four months; re-verify anything time-sensitive before relying on it. This page contains legal and policy information, not legal advice. It names no facility as a wrongdoer and asks for no resident information. Corrections are published, dated, and never made silently.</p>
+        <p class="disc" style="margin-top:12px">Together Network is a volunteer project of Indiana long-term care workers, former workers, and families. It is not a union, a law firm, or a 501(c)(3), and it accepts no money in its first ninety days.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div class="tip" id="tip" role="tooltip"></div>
+<div id="print-root"></div>
+
+<script>
+(function () {
+  // ---------------- organizer configuration ----------------
+  // Update these when signatures are verified; republish the page.
+  var CONFIG = {
+    verifiedSignatures: 0,          // paper + compiled online signatures actually verified
+    goal: 1000,
+    tallyUpdated: "2026-09-09",     // ISO date of the last count
+    organizerEmail: "",             // personal intake address for online signatures; leave "" to hide the email button
+    organizationDay: "2026-11-17",
+    adjournment: "2027-04-29",
+    signatureRowsOnScreen: 3,
+    signatureRowsOnPaper: 12
+  };
+
+  var COUNTIES = "Adams,Allen,Bartholomew,Benton,Blackford,Boone,Brown,Carroll,Cass,Clark,Clay,Clinton,Crawford,Daviess,Dearborn,Decatur,DeKalb,Delaware,Dubois,Elkhart,Fayette,Floyd,Fountain,Franklin,Fulton,Gibson,Grant,Greene,Hamilton,Hancock,Harrison,Hendricks,Henry,Howard,Huntington,Jackson,Jasper,Jay,Jefferson,Jennings,Johnson,Knox,Kosciusko,LaGrange,Lake,LaPorte,Lawrence,Madison,Marion,Marshall,Martin,Miami,Monroe,Montgomery,Morgan,Newton,Noble,Ohio,Orange,Owen,Parke,Perry,Pike,Porter,Posey,Pulaski,Putnam,Randolph,Ripley,Rush,St. Joseph,Scott,Shelby,Spencer,Starke,Steuben,Sullivan,Switzerland,Tippecanoe,Tipton,Union,Vanderburgh,Vermillion,Vigo,Wabash,Warren,Warrick,Washington,Wayne,Wells,White,Whitley".split(",");
+
+  var $ = function (id) { return document.getElementById(id); };
+  function fmt(n) { return n.toLocaleString("en-US"); }
+  function daysUntil(iso) {
+    var t = new Date(iso + "T00:00:00"); var now = new Date();
+    now.setHours(0, 0, 0, 0);
+    return Math.round((t - now) / 86400000);
+  }
+
+  // ---------------- status strip ----------------
+  $("tally").textContent = fmt(CONFIG.verifiedSignatures);
+  $("goal").textContent = fmt(CONFIG.goal);
+  var dOrg = daysUntil(CONFIG.organizationDay), dAdj = daysUntil(CONFIG.adjournment);
+  $("days-org").textContent = dOrg >= 0 ? fmt(dOrg) : "passed";
+  $("days-adj").textContent = dAdj >= 0 ? fmt(dAdj) : "0";
+  $("tally-updated").textContent = "Tally updated " + new Date(CONFIG.tallyUpdated + "T00:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + ". Counted from verified paper sheets and compiled online signatures.";
+  requestAnimationFrame(function () { $("bar").style.width = Math.min(100, 100 * CONFIG.verifiedSignatures / CONFIG.goal) + "%"; });
+
+  // ---------------- county select ----------------
+  var sel = $("f-county");
+  COUNTIES.forEach(function (c) { var o = document.createElement("option"); o.value = c; o.textContent = c; sel.appendChild(o); });
+
+  // ---------------- signature rows ----------------
+  function rows(n, start, fill) {
+    var h = "";
+    for (var i = 0; i < n; i++) {
+      var f = fill && i === 0 ? fill : null;
+      h += "<tr><td>" + (start + i) + "</td><td></td><td>" + (f ? esc(f.name) : "") + "</td><td>" + (f ? esc(f.addr) : "") + "</td><td>" + (f ? esc(f.county) : "") + "</td><td>" + (f ? esc(f.date) : "") + "</td></tr>";
+    }
+    return h;
+  }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  $("sig-rows").innerHTML = rows(CONFIG.signatureRowsOnScreen, 1);
+  $("sig-rows-print").innerHTML = rows(CONFIG.signatureRowsOnPaper - CONFIG.signatureRowsOnScreen, CONFIG.signatureRowsOnScreen + 1);
+
+  // ---------------- printing ----------------
+  function printSheet(fill) {
+    var doc = $("petition-doc").cloneNode(true);
+    var body = doc.querySelector("#sig-rows"); var extra = doc.querySelector("#sig-rows-print");
+    body.innerHTML = rows(CONFIG.signatureRowsOnPaper, 1, fill);
+    extra.innerHTML = "";
+    body.id = ""; extra.id = ""; doc.id = "";
+    var root = $("print-root"); root.innerHTML = ""; root.appendChild(doc);
+    window.print();
+  }
+  ["print-top", "print-btn", "print-bottom"].forEach(function (id) { $(id).addEventListener("click", function () { printSheet(null); }); });
+
+  // ---------------- charts ----------------
+  var css = getComputedStyle(document.documentElement);
+  function tok(name) { return css.getPropertyValue(name).trim(); }
+  var tip = $("tip");
+  function showTip(e, html) { tip.innerHTML = html; tip.style.display = "block"; moveTip(e); }
+  function moveTip(e) { var x = e.clientX + 14, y = e.clientY + 14; if (x + 270 > innerWidth) x = e.clientX - 270; tip.style.left = x + "px"; tip.style.top = y + "px"; }
+  function hideTip() { tip.style.display = "none"; }
+
+  var HPRD = [
+    { label: "Indiana law today", sub: "0.50 licensed nurse hours only; no CNA or total minimum", v: 0.5, kind: "alert", status: "In force" },
+    { label: "The Act, July 1, 2027", sub: "2.10 CNA · 0.75 licensed · 0.30 RN", v: 3.00, kind: "bill", status: "Proposed" },
+    { label: "The Act, July 1, 2028", sub: "2.45 CNA · 0.90 licensed · 0.55 RN · RN on site 24/7", v: 3.48, kind: "bill", status: "Proposed" },
+    { label: "Federal rule, May 2024", sub: "Repealed effective Feb 2, 2026; barred until after Sept 30, 2034", v: 3.48, kind: "ref", status: "Repealed" },
+    { label: "Research benchmark, 2001", sub: "CMS-commissioned study: 2.8 CNA · 0.75 RN · 0.55 LPN", v: 4.1, kind: "ref", status: "Benchmark" }
+  ];
+  function drawHPRD() {
+    var W = 640, labelW = 170, right = 44, rowH = 44, top = 8, bottom = 30;
+    var H = top + HPRD.length * rowH + bottom;
+    var plotW = W - labelW - right, max = 4.5;
+    var x = function (v) { return labelW + v / max * plotW; };
+    var color = { alert: tok("--clay"), bill: tok("--slate"), ref: tok("--neutral-bar") };
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Bar chart of direct care hours per resident day by standard">';
+    s += '<g class="axis">';
+    [0, 1, 2, 3, 4].forEach(function (t) {
+      s += '<line x1="' + x(t) + '" x2="' + x(t) + '" y1="' + top + '" y2="' + (H - bottom + 4) + '"/>';
+      s += '<text x="' + x(t) + '" y="' + (H - 8) + '" text-anchor="middle">' + t + (t === 4 ? " hrs" : "") + '</text>';
+    });
+    s += '</g>';
+    HPRD.forEach(function (d, i) {
+      var y = top + i * rowH + 8, h = 20;
+      s += '<g class="cat"><text x="' + (labelW - 10) + '" y="' + (y + 14) + '" text-anchor="end">' + esc(d.label) + '</text></g>';
+      s += '<rect class="bar" x="' + labelW + '" y="' + y + '" width="' + (x(d.v) - labelW) + '" height="' + h + '" fill="' + color[d.kind] + '" rx="0"/>';
+      s += '<rect x="' + (x(d.v) - 4) + '" y="' + y + '" width="4" height="' + h + '" fill="' + color[d.kind] + '" rx="4"/>';
+      s += '<g class="val"><text x="' + (x(d.v) + 8) + '" y="' + (y + 14) + '">' + d.v.toFixed(2) + '</text></g>';
+      s += '<rect class="bar-hit" data-i="' + i + '" x="' + labelW + '" y="' + (y - 8) + '" width="' + plotW + '" height="' + rowH + '"/>';
+    });
+    s += '</svg>';
+    $("hprd-svg").innerHTML = s;
+    $("hprd-table").innerHTML = HPRD.map(function (d) { return "<tr><td>" + esc(d.label) + " <span class='muted small'>" + esc(d.sub) + "</span></td><td class='n'>" + d.v.toFixed(2) + "</td><td>" + d.status + "</td></tr>"; }).join("");
+    $("hprd-svg").querySelectorAll(".bar-hit").forEach(function (r) {
+      var d = HPRD[+r.dataset.i];
+      var html = "<b>" + esc(d.label) + "</b><br>" + d.v.toFixed(2) + " total hours per resident day<br><span style='opacity:.8'>" + esc(d.sub) + "</span>";
+      r.addEventListener("mouseenter", function (e) { showTip(e, html); });
+      r.addEventListener("mousemove", moveTip);
+      r.addEventListener("mouseleave", hideTip);
+    });
+  }
+  function drawMoney() {
+    var W = 420, H = 118, keptPct = 2.6 / 5.6, gap = 2, y = 34, h = 40;
+    var kept = Math.round((W) * keptPct);
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Proportion bar: 46 percent of 5.6 billion dollars kept by county hospitals, 54 percent reached nursing homes">';
+    s += '<g class="val"><text x="0" y="14">$5.6 billion generated</text><text x="' + W + '" y="14" text-anchor="end" style="fill:' + tok("--ink-2") + ';font-weight:500">2010–2025, approx.</text></g>';
+    s += '<rect x="0" y="' + y + '" width="' + (kept - gap) + '" height="' + h + '" fill="' + tok("--clay") + '" rx="2"/>';
+    s += '<rect x="' + (kept + gap) + '" y="' + y + '" width="' + (W - kept - gap) + '" height="' + h + '" fill="' + tok("--slate") + '" rx="2"/>';
+    s += '<text class="dlabel" x="10" y="' + (y + 25) + '">$2.6B kept · 46%</text>';
+    s += '<text class="dlabel" x="' + (kept + gap + 10) + '" y="' + (y + 25) + '">$3.0B reached homes · 54%</text>';
+    s += '<g class="cat"><text x="0" y="' + (H - 12) + '">Retained: hospital construction, equipment, ambulances, technology</text></g>';
+    s += '</svg>';
+    $("money-svg").innerHTML = s;
+  }
+  drawHPRD(); drawMoney();
+  var mq = matchMedia("(prefers-color-scheme: dark)");
+  var redraw = function () { css = getComputedStyle(document.documentElement); drawHPRD(); drawMoney(); };
+  mq.addEventListener ? mq.addEventListener("change", redraw) : mq.addListener(redraw);
+  new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  // ---------------- sign form ----------------
+  var form = $("sign-form"), err = $("err"), done = $("done"), record = $("record"), toast = $("toast");
+  try { var draft = JSON.parse(localStorage.getItem("cfp-draft") || "null"); if (draft) { ["f-name", "f-street", "f-city", "f-zip", "f-county", "f-role", "f-email"].forEach(function (id) { if (draft[id]) $(id).value = draft[id]; }); } } catch (e) {}
+  form.addEventListener("input", function () {
+    try { var d = {}; ["f-name", "f-street", "f-city", "f-zip", "f-county", "f-role", "f-email"].forEach(function (id) { d[id] = $(id).value; }); localStorage.setItem("cfp-draft", JSON.stringify(d)); } catch (e) {}
+  });
+  var lastFill = null;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = {};
+    ["name", "street", "city", "zip", "county", "role", "email"].forEach(function (k) { v[k] = $("f-" + k).value.trim(); });
+    var missing = [];
+    if (!v.name) missing.push("printed name");
+    if (!v.street) missing.push("street address");
+    if (!v.city) missing.push("city");
+    if (!/^\d{5}(-\d{4})?$/.test(v.zip)) missing.push("a 5-digit ZIP");
+    if (!v.county) missing.push("county");
+    if (!v.role) missing.push("who you are");
+    if (v.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) missing.push("a valid email (or leave it blank)");
+    if (!$("f-attest").checked) missing.push("the attestation checkbox");
+    if (missing.length) { err.textContent = "Still needed: " + missing.join(", ") + "."; err.classList.add("show"); return; }
+    err.classList.remove("show");
+    var today = new Date();
+    var dateStr = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
+    var nameParts = v.name.split(/\s+/);
+    var publicName = nameParts.length > 1 ? nameParts[0] + " " + nameParts[nameParts.length - 1].charAt(0) + "." : nameParts[0];
+    var txt = [
+      "CARE FLOOR PETITION — ONLINE SIGNATURE",
+      "Petition to the 125th Indiana General Assembly for the Indiana Nursing Home Direct Care Staffing and Accountability Act",
+      "",
+      "Printed name: " + v.name,
+      "Residence address: " + v.street + ", " + v.city + ", IN " + v.zip,
+      "County: " + v.county,
+      "Signer: " + v.role,
+      "Date signed: " + dateStr,
+      "Email: " + (v.email || "(none given)"),
+      "Public listing: " + ($("f-public").checked ? "YES, as \"" + publicName + ", " + v.role.replace(/^A |^An |^Other /, "").replace(/ in Indiana long-term care$/, "") + ", " + v.county + " County\"" : "no"),
+      "Join the coalition: " + ($("f-join").checked ? "yes" : "no"),
+      "",
+      "I am a resident of Indiana, I am signing this petition once, and the information above is true. I understand this signature will be compiled onto the paper petition delivered to the Indiana General Assembly."
+    ].join("\n");
+    record.textContent = txt;
+    lastFill = { name: v.name, addr: v.street + ", " + v.city + " " + v.zip, county: v.county, date: dateStr };
+    var mail = $("mail-btn");
+    if (CONFIG.organizerEmail) {
+      mail.hidden = false; $("no-mail-note").hidden = true;
+      mail.href = "mailto:" + encodeURIComponent(CONFIG.organizerEmail) + "?subject=" + encodeURIComponent("Care Floor Petition signature — " + v.county + " County") + "&body=" + encodeURIComponent(txt);
+    } else { mail.hidden = true; $("no-mail-note").hidden = false; }
+    done.classList.add("show");
+    toast.textContent = "";
+    done.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+  $("copy-btn").addEventListener("click", function () {
+    var t = record.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function () { toast.textContent = "Copied. Paste it into an email from a personal account."; }, function () { fallbackCopy(t); });
+    } else { fallbackCopy(t); }
+  });
+  function fallbackCopy(t) {
+    var ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); toast.textContent = "Copied. Paste it into an email from a personal account."; } catch (e) { toast.textContent = "Select the text above and copy it."; }
+    document.body.removeChild(ta);
+  }
+  $("print-mine").addEventListener("click", function () { printSheet(lastFill); });
+})();
+</script>

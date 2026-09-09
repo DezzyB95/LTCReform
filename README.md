@@ -36,6 +36,7 @@ And one frame nobody else in Indiana is running:
 | `campaign/11-OUTREACH.md` | Comment replies, DM scripts, reporter pitches, allied orgs, legislators |
 | `campaign/12-MEASUREMENT.md` | What to track, weekly/monthly review, realistic expectations, sustainability |
 | `campaign/sources.md` | Every citation, with a verify-before-publishing checklist |
+| `petition/index.html` | The Care Floor Petition dashboard: sourced case, bill summary, coalition charter, formal petition to the General Assembly, online + printable signing (see `petition/README.md`) |
 
 ## The three policy asks
 
