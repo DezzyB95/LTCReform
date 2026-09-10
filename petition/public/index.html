@@ -672,7 +672,7 @@
           <div class="field" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true"><label for="j-website">Leave this blank</label><input id="j-website" name="website" tabindex="-1" autocomplete="off"></div>
           <label class="check"><input type="checkbox" id="j-consent" required><span>The coalition may contact me about this campaign. I understand it is not a union or a law firm, and that I can leave the list at any time.</span></label>
           <p class="err" id="j-err" role="alert"></p>
-          <div class="actions"><button class="btn" type="submit">Join</button></div>
+          <div class="actions"><button class="btn" type="submit">Join</button><a class="btn clay" id="j-mail" href="#" hidden>Email my sign-up to the coalition</a></div>
           <p class="toast" id="j-toast"></p>
         </form>
         <div class="box rights">
@@ -735,7 +735,7 @@
 
       <form class="form" id="sign-form" novalidate>
         <h3>Sign online</h3>
-        <p class="intro">Your signature is recorded the moment you submit it and sent to the coalition for delivery to the General Assembly. Your address is never published. If you give an email, you get a receipt.</p>
+        <p class="intro" id="sign-intro">Fill this in and the page prepares your signature as an email to the coalition, which you send from your own mail app. It is added to the petition delivered to the General Assembly. Your address is never published.</p>
         <div class="field"><label for="f-name">Printed name</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-street">Residence address</label><input id="f-street" name="street" autocomplete="street-address" placeholder="Street" required></div>
         <div class="grid3">
@@ -761,7 +761,7 @@
         </div>
         <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="personal cell"></div>
         <div class="field" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true"><label for="f-website">Leave this blank</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
-        <label class="check"><input type="checkbox" id="f-public"><span>Show my name publicly on the coalition's supporter list as first name, last initial, role, and county. Never your address. Current staff: think carefully; your employer can read it.</span></label>
+        <label class="check"><input type="checkbox" id="f-public"><span>The coalition may list me publicly as a supporter: first name, last initial, role, and county. Never your address. Current staff: think carefully; your employer can read it.</span></label>
         <label class="check"><input type="checkbox" id="f-join"><span>I want to join the Care Floor Coalition. Contact me at the email above from a personal, non-work channel.</span></label>
         <label class="check"><input type="checkbox" id="f-attest" required><span>I am a resident of Indiana, I am signing once, and the information above is true.</span></label>
         <p class="err" id="err" role="alert"></p>
@@ -936,6 +936,7 @@
       API_OK = true;
       renderStats(d.total, d.goal, d.byCounty.length, "Live count: " + fmt(d.online) + " online" + (d.paper ? " and " + fmt(d.paper) + " on paper sheets" : "") + (d.confirmed ? ", " + fmt(d.confirmed) + " confirmed by email" : "") + ". Updated " + new Date(d.updated).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + ".");
       if (d.banner) { $("banner").textContent = d.banner; $("banner").hidden = false; }
+      $("sign-intro").textContent = "Your signature is recorded the moment you submit it and sent to the coalition for delivery to the General Assembly. Your address is never published. If you give an email, you get a receipt.";
     }).catch(function () { /* static hosting or offline: keep the configured tally */ });
   }
   function loadWall() {
@@ -1158,7 +1159,25 @@
       })
       .catch(function () {
         jb.disabled = false; jb.textContent = "Join";
-        jerr.textContent = "The sign-up could not be sent. Try again later, or sign the petition and tick the box to join the coalition."; jerr.classList.add("show");
+        var jmail = $("j-mail");
+        if (CONFIG.contactAddress) {
+          var jt = ["CARE FLOOR COALITION — SIGN-UP", "", "Name: " + v.name, "County: " + v.county + " County", "I am: " + v.role];
+          if (v.email) jt.push("Email: " + v.email);
+          if (v.phone) jt.push("Phone: " + v.phone);
+          if (v.employer_type) jt.push("Where I work: " + v.employer_type);
+          if (v.help.length) jt.push("I can help by: " + v.help.join("; "));
+          if (v.testify) jt.push("Willing to testify: yes");
+          if (v.county_contact) jt.push("Willing to be a county contact: yes");
+          if (v.contact_pref) jt.push("Best way to reach me: " + v.contact_pref);
+          if (v.message) jt.push("", v.message);
+          jt.push("", "I consent to be contacted about this campaign.");
+          jmail.href = "mailto:" + encodeURIComponent(CONFIG.contactAddress) + "?subject=" + encodeURIComponent("Care Floor Coalition sign-up — " + v.county + " County") + "&body=" + encodeURIComponent(jt.join("\n"));
+          jmail.hidden = false;
+          jerr.textContent = "Press the button to send your sign-up from your own mail app.";
+        } else {
+          jerr.textContent = "The sign-up could not be sent. Try again later, or sign the petition and tick the box to join the coalition.";
+        }
+        jerr.classList.add("show");
       });
   });
   $("copy-btn").addEventListener("click", function () {

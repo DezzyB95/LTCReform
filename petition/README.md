@@ -17,7 +17,22 @@ address, change two fields at the top of the script in `public/index.html`:
 
 Encoding is only to slow down scrapers. Anyone reading the page source can still decode
 it. The real fix is a forwarding address on a domain the coalition owns, pointed at
-whichever inbox should receive the mail. In production
+whichever inbox should receive the mail.
+
+## The public copy is written for static hosting
+
+`public/` is published on Netlify with no server behind it. The copy in `index.html` and
+`privacy.html` describes that honestly: nothing is stored, no receipt is sent, no district
+lookup runs, and both forms hand the visitor a pre-filled email to send themselves.
+
+`index.html` upgrades itself when a server is present. If `/api/stats` answers, the sign
+section swaps to the stronger wording ("recorded the moment you submit it"), because with
+the backend running that is true.
+
+**`privacy.html` does not upgrade itself.** It is plain HTML and states that there is no
+database. Before deploying the full server version, rewrite it to describe the database,
+the receipt and confirmation emails, the Census geocoder lookup, and the removal link, or
+signers will be reading a policy that understates what is collected. In production
 the server refuses to start unless email sending is configured, so nothing can be collected
 silently.
 

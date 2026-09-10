@@ -17,33 +17,62 @@
   <h1>What we collect, and what we do with it</h1>
   <p>This site is run by the Care Floor Coalition, a volunteer project of Indiana long-term care workers, former workers, and families. It is not a union, a law firm, or a charity, and it does not sell or share data with anyone for any purpose other than delivering the petition and organizing the coalition.</p>
 
+  <h2>How this site handles what you type</h2>
+  <p>This copy of the site has no database and no server storing signatures. Nothing you type is
+  transmitted anywhere by the page itself. When you press the button, the page assembles what you
+  entered into an email addressed to the coalition and opens it in your own mail app. It reaches
+  the coalition only when you press send. If you close the page instead, nothing has been sent and
+  nothing has been kept.</p>
+
   <h2>When you sign the petition</h2>
   <ul>
-    <li><b>Collected:</b> printed name, residence address, county, who you are (for example, "a current CNA"), and, if you choose, an email and phone. We also record the date and a hashed form of your connection address to stop bots.</li>
-    <li><b>Used for:</b> compiling the petition for delivery to members of the Indiana General Assembly. Your address is used to determine your House and Senate district (through the U.S. Census Bureau's public geocoder) so your signature reaches your own legislators. The petition, with names and addresses, is given to the legislators and committee it is presented to. That is what a petition is.</li>
-    <li><b>Never:</b> your address is never published on this site or anywhere public. If you tick the box to be listed, we show first name, last initial, role, and county only.</li>
-    <li><b>Email:</b> if you give one, you receive a receipt with a link to confirm your signature and a link to remove it. We may email you about the petition's progress. No newsletters, no fundraising in the first ninety days.</li>
+    <li><b>You provide:</b> printed name, residence address, county, who you are (for example, "a
+    current CNA"), and, if you choose, an email and phone.</li>
+    <li><b>Used for:</b> compiling the petition for delivery to members of the Indiana General
+    Assembly. The petition, with names and addresses, is given to the legislators and the committee
+    it is presented to. That is what a petition is, and it is the point of signing one.</li>
+    <li><b>Never:</b> your address is never published on this site or anywhere public. If you tick
+    the box allowing it, the coalition may list first name, last initial, role, and county only.</li>
+    <li><b>Your address is not looked up</b> by this site, and no receipt or confirmation email is
+    sent back to you. Your own sent-mail folder is your record of what you submitted.</li>
   </ul>
 
   <h2>When you join the coalition</h2>
   <ul>
-    <li><b>Collected:</b> name, personal email or phone, county, role, the type of place you work (never its name), how you want to help, and anything you choose to write.</li>
-    <li><b>Used for:</b> contacting you about coalition work, from a personal, non-work channel. The member list is kept by the organizer and shown to no one else.</li>
+    <li><b>You provide:</b> name, personal email or phone, county, role, the type of place you work
+    (never its name), how you want to help, and anything you choose to write.</li>
+    <li><b>Used for:</b> contacting you about coalition work, from a personal, non-work channel. The
+    member list is kept by the organizer and shown to no one else.</li>
   </ul>
 
   <h2>What we ask you not to send</h2>
-  <p>No resident names, initials, room numbers, diagnoses, or incidents that could identify a resident. No photographs taken inside a facility. No documents taken from an employer. No facility named as a wrongdoer. Anything like that is deleted.</p>
+  <p>No resident names, initials, room numbers, diagnoses, or incidents that could identify a
+  resident. No photographs taken inside a facility. No documents taken from an employer. No facility
+  named as a wrongdoer. Anything like that is deleted.</p>
 
   <h2>Removing your details</h2>
-  <p>Every receipt email contains a personal link that deletes your record. If you did not give an email, contact the coalition and say which name and county to remove. If you also signed a paper sheet, tell us and the line is struck before delivery.</p>
+  <p><span id="remove-link">Email the coalition</span> and say which name and county to remove, and
+  it is struck before delivery. If you also signed a paper sheet, say so and that line is struck too.
+  Because your signature arrives as an ordinary email, there is no automatic removal link.</p>
+  <script>
+  (function () {
+    var a = document.createElement("a");
+    a.href = "mailto:" + encodeURIComponent(atob("ZGV6emVyZWE3MEBnbWFpbC5jb20=")) + "?subject=" + encodeURIComponent("Remove my details from the Care Floor Petition");
+    a.textContent = "Email the coalition";
+    var slot = document.getElementById("remove-link");
+    slot.parentNode.replaceChild(a, slot);
+  })();
+  </script>
 
-  <h2>Where the data lives</h2>
-  <p>On the server that runs this site, in a single database, backed up by the organizer. Each signature and sign-up is also emailed to the organizer at the moment it is made. Cookies are not used; the site keeps an unsent draft of the form in your own browser only.</p>
+  <h2>Cookies and your browser</h2>
+  <p>No cookies and no analytics. No tracking of any kind. The page saves an unfinished form in your
+  own browser so you do not lose it, and that copy stays on your device. Clearing your browser data
+  removes it.</p>
 
   <h2>If you work in a facility</h2>
   <p>Use a personal phone and personal email. Reading this site tells your employer nothing; signing publicly might. Indiana is an at-will state, and the window to file a retaliation complaint with the Indiana Department of Labor after an adverse action is 30 calendar days.</p>
 
-  <p class="small">General information, not legal advice. Last updated September 9, 2026.</p>
+  <p class="small">General information, not legal advice. Last updated September 10, 2026.</p>
 </main>
 </body>
 </html>
