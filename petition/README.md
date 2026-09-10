@@ -5,7 +5,19 @@ Care Floor Coalition. It is built to be run by one organizer, kept running for y
 extended as the campaign grows.
 
 **Every signature and every coalition sign-up is emailed to dezzerea70@gmail.com the
-moment it is made.** That address is fixed in `lib/mailer.js`, not a setting. In production
+moment it is made.** That address is fixed in `lib/mailer.js`, not a setting.
+
+The public page never displays it. `public/index.html` shows the coalition's name and
+keeps the routing address in `CONFIG.contactAddress`, base64-encoded so it is not sitting
+in the page as plain text for address harvesters. To point the site at a different
+address, change two fields at the top of the script in `public/index.html`:
+
+    contactLabel:   the name shown on the button
+    contactAddress: atob("<the new address, base64-encoded>")
+
+Encoding is only to slow down scrapers. Anyone reading the page source can still decode
+it. The real fix is a forwarding address on a domain the coalition owns, pointed at
+whichever inbox should receive the mail. In production
 the server refuses to start unless email sending is configured, so nothing can be collected
 silently.
 

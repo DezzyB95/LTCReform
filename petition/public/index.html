@@ -783,7 +783,7 @@
           <p class="small muted" id="done-fallback-note">Your signature goes to the coalition by email from here. Press the button, then press send in your mail app.</p>
           <pre id="record"></pre>
           <div class="ways">
-            <a class="btn clay" id="mail-btn" href="#" hidden>Email it to the coalition (dezzerea70@gmail.com)</a>
+            <a class="btn clay" id="mail-btn" href="#" hidden>Email it to the Care Floor Coalition</a>
             <button class="btn ghost" type="button" id="copy-btn">Copy the text</button>
             <button class="btn ghost" type="button" id="print-mine">Print a sheet with my line filled in</button>
           </div>
@@ -899,7 +899,8 @@
     verifiedSignatures: 0,
     goal: 1000,
     tallyUpdated: "2026-09-09",
-    organizerEmail: "dezzerea70@gmail.com",
+    contactLabel: "the Care Floor Coalition",
+    contactAddress: atob("ZGV6emVyZWE3MEBnbWFpbC5jb20="),
     organizationDay: "2026-11-17",
     adjournment: "2027-04-29",
     signatureRowsOnScreen: 3,
@@ -1117,9 +1118,10 @@
         // Hand the signer the record to send another way.
         btn.disabled = false; btn.textContent = "Add my signature";
         var mail = $("mail-btn");
-        if (CONFIG.organizerEmail) {
+        if (CONFIG.contactAddress) {
           mail.hidden = false; $("no-mail-note").hidden = true;
-          mail.href = "mailto:" + encodeURIComponent(CONFIG.organizerEmail) + "?subject=" + encodeURIComponent("Care Floor Petition signature — " + v.county + " County") + "&body=" + encodeURIComponent(txt);
+          mail.textContent = "Email it to " + CONFIG.contactLabel;
+          mail.href = "mailto:" + encodeURIComponent(CONFIG.contactAddress) + "?subject=" + encodeURIComponent("Care Floor Petition signature — " + v.county + " County") + "&body=" + encodeURIComponent(txt);
         } else { mail.hidden = true; $("no-mail-note").hidden = false; }
         $("done-ok").style.display = "none";
         done.classList.add("show");
@@ -1156,7 +1158,7 @@
       })
       .catch(function () {
         jb.disabled = false; jb.textContent = "Join";
-        jerr.textContent = "The sign-up could not be sent. " + (CONFIG.organizerEmail ? "Email " + CONFIG.organizerEmail + " from a personal account instead." : "Try again later, or sign the petition and check the coalition box."); jerr.classList.add("show");
+        jerr.textContent = "The sign-up could not be sent. Try again later, or sign the petition and tick the box to join the coalition."; jerr.classList.add("show");
       });
   });
   $("copy-btn").addEventListener("click", function () {
