@@ -1,0 +1,16 @@
+# Netlify publishes ONLY the public petition page.
+#
+# Without this, Netlify defaults to the repository root, which would serve the
+# internal campaign files (campaign/*.md, README.md) and the petition server
+# source at public URLs. Those documents are organizer-only: strategy, legal and
+# safety guardrails, outreach scripts, and measurement targets. They are not for
+# publication. Do not widen this directory.
+[build]
+  publish = "petition/public"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

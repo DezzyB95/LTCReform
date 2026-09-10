@@ -513,7 +513,7 @@
         </ul>
       </div>
     </div>
-    <p class="src" style="margin-top:12px">Dates from IC 2-2.1-1-2 and IC 2-2.1-1-3 and the coalition brief. Session dates can be adjusted at Organization Day; verify at iga.in.gov before relying on them.</p>
+    <p class="src" style="margin-top:12px">Dates from IC 2-2.1-1-2 and IC 2-2.1-1-3. Session dates can be adjusted at Organization Day; the current calendar is published at iga.in.gov.</p>
   </section>
 
   <!-- ===================== THE BILL ===================== -->
@@ -586,7 +586,7 @@
         <tr><td>No more than 16 consecutive hours counted, no routine mandatory overtime</td><td>IC 16-28-17-3(g)</td><td>Care from someone in their eighth hour, not their nineteenth</td></tr>
       </tbody>
     </table>
-    <p class="src" style="margin-top:10px">Section references are to the draft Act as attached to the coalition brief, September 2026. The worker protection chapter has essentially no fiscal note.</p>
+    <p class="src" style="margin-top:10px">Section references are to the draft Act as attached to the coalition brief, September 2026.</p>
   </section>
 
   <!-- ===================== COALITION ===================== -->
@@ -772,7 +772,7 @@
         </div>
         <div class="done" id="done" aria-live="polite">
           <h4 style="margin-top:16px" id="done-fallback-title">Your signature is ready. Send it to the coalition.</h4>
-          <p class="small muted" id="done-fallback-note">This copy of the page has no signature server behind it, so the record below goes to the coalition by email. Press the button, then press send in your mail app.</p>
+          <p class="small muted" id="done-fallback-note">Your signature goes to the coalition by email from here. Press the button, then press send in your mail app.</p>
           <pre id="record"></pre>
           <div class="ways">
             <a class="btn clay" id="mail-btn" href="#" hidden>Email it to the coalition (dezzerea70@gmail.com)</a>
@@ -780,7 +780,7 @@
             <button class="btn ghost" type="button" id="print-mine">Print a sheet with my line filled in</button>
           </div>
           <p class="toast" id="toast"></p>
-          <p class="small muted" style="margin-top:10px" id="no-mail-note" hidden>The coalition's intake email is not set on this page yet. Copy the text and send it from a personal email address, or print and sign.</p>
+          <p class="small muted" style="margin-top:10px" id="no-mail-note" hidden>Copy the text below and send it from a personal email address, or print the sheet and sign it in ink.</p>
         </div>
         <div class="privacy">
           <b>Before you sign, if you work in a facility:</b> use a personal phone and personal email, never facility wifi or a work account. Do not send photos from inside a building or any resident information. Reading this page does not tell your employer anything; signing publicly might.
@@ -816,7 +816,7 @@
           <li>Senate standing rules require a petition or memorial to be reported on by the committee it is assigned to before any action is taken on it.</li>
           <li>The likely committees for this subject are House Public Health and Senate Health and Provider Services.</li>
         </ul>
-        <span class="cite">Standing Rules and Orders of the Senate; Rules of the House of Representatives, published each term at iga.in.gov. Confirm the current rule numbers with the Principal Clerk and Principal Secretary before delivery.</span>
+        <span class="cite">Standing Rules and Orders of the Senate; Rules of the House of Representatives, published each term at iga.in.gov.</span>
       </div>
       <div class="rule-card">
         <h3>The form each sheet follows</h3>
@@ -830,7 +830,7 @@
       </div>
     </div>
     <div class="callout">
-      <b>Two things to keep straight.</b> Ask family members and former staff to be the public face of delivery; a current employee's name on a cover letter is a risk the coalition should not ask anyone to take. And the petition is not a lawsuit or a records request: it asks for a law, it does not describe any facility, and it names no one as a wrongdoer.
+      <b>What this petition is not.</b> It is not a lawsuit and not a records request. It asks for a law. It does not describe any facility, and it names no one as a wrongdoer.
     </div>
   </section>
 
@@ -849,7 +849,7 @@
       <li><b>Sort by district before Organization Day.</b><span class="sub">Copy each sheet. Group originals by the signers' House and Senate districts so each legislator receives the names from their own voters.</span></li>
       <li><b>Ask a legislator to present it.</b><span class="sub">The one-page ask: "Will you present this petition and support a state direct care staffing standard in the 2027 session?" A phone call to the office beats email; a visit beats both. Bring a family member.</span></li>
       <li><b>Deliver copies to the committee chairs and the sponsor.</b><span class="sub">House Public Health, Senate Health and Provider Services, and whichever member agrees to author the bill. Attach the coalition brief and the draft Act.</span></li>
-      <li><b>Log every response.</b><span class="sub">Name, district, party, date, what they said, and the follow-up. That spreadsheet is the most valuable thing this campaign produces, and the thing reporters ask for in January.</span></li>
+      <li><b>Log every response.</b><span class="sub">Name, district, party, date, what they said, and the follow-up. Send it back to the coalition so no office is asked twice and none is missed.</span></li>
     </ol>
     <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
       <button class="btn" type="button" id="print-bottom">Print blank signature sheets</button>
@@ -888,13 +888,11 @@
 
 <script>
 (function () {
-  // ---------------- organizer configuration ----------------
-  // Update these when signatures are verified; republish the page.
   var CONFIG = {
-    verifiedSignatures: 0,          // fallback tally when no server is behind the page; the live count comes from /api/stats
+    verifiedSignatures: 0,
     goal: 1000,
-    tallyUpdated: "2026-09-09",     // ISO date of the fallback count
-    organizerEmail: "dezzerea70@gmail.com", // used only by the no-server fallback (mailto) when /api is unreachable
+    tallyUpdated: "2026-09-09",
+    organizerEmail: "dezzerea70@gmail.com",
     organizationDay: "2026-11-17",
     adjournment: "2027-04-29",
     signatureRowsOnScreen: 3,
@@ -1109,7 +1107,7 @@
         }
       })
       .catch(function () {
-        // No server behind this page (static copy or artifact preview): hand the signer the record to send another way.
+        // Hand the signer the record to send another way.
         btn.disabled = false; btn.textContent = "Add my signature";
         var mail = $("mail-btn");
         if (CONFIG.organizerEmail) {
