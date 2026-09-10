@@ -624,8 +624,8 @@
           <ul>
             <li>Current CNAs, QMAs, LPNs, RNs, restorative aides, and dietary, housekeeping, laundry, and activities staff in Indiana long-term care.</li>
             <li>Former staff, who can say publicly what current staff cannot.</li>
-            <li>Residents and their families, the group legislators actually answer.</li>
-            <li>Consumer, aging, disability, labor, faith, legal, and academic organizations, as endorsing members with one bounded ask each.</li>
+            <li>Residents of Indiana nursing homes, and their families.</li>
+            <li>Consumer, aging, disability, labor, faith, legal, and academic organizations, as endorsing members.</li>
           </ul>
         </div>
         <div class="box">
@@ -634,8 +634,8 @@
             <li>Collects and verifies petition signatures, county by county, and delivers them through each county's own legislators.</li>
             <li>Runs know-your-rights education: NLRA §7 concerted activity, the 30-day IOSHA retaliation window, how to file a complaint the Ombudsman can verify.</li>
             <li>Keeps a quiet county-contact network so a worker in trouble has one person nearby who knows the process.</li>
-            <li>Builds a testimony bench of former staff and families for the committee hearing.</li>
-            <li>Sends and tracks the fifteen public records requests in the Indiana Nursing Home Ledger.</li>
+            <li>Finds former staff and family members willing to testify when the Act is heard in committee.</li>
+            <li>Files public records requests for facility-level spending, and publishes what comes back.</li>
           </ul>
         </div>
         <div class="box">
@@ -834,7 +834,6 @@
           <li>Indiana residents only, one signature per person, no notarization required.</li>
           <li>Online signatures are printed as a schedule attached to the paper petition, with a statement of how and when they were collected.</li>
         </ul>
-        <span class="cite">IC 3-8-6-6 governs candidate petitions, not legislative ones; its signer conventions are used here because they are what Indiana clerks are used to reading.</span>
       </div>
     </div>
     <div class="callout">
@@ -852,11 +851,11 @@
       </div>
     </div>
     <ol class="steps">
-      <li><b>Find your two legislators.</b><span class="sub">One representative, one senator. Look them up by address at <a href="https://iga.in.gov/legislative/find-legislators" rel="noopener">iga.in.gov/legislative/find-legislators</a>. Note the district on your county's tally sheet.</span></li>
+      <li><b>Find your two legislators.</b><span class="sub">One representative, one senator. Look them up by address at <a href="https://iga.in.gov/legislative/find-legislators" rel="noopener">iga.in.gov/legislative/find-legislators</a>. Write down both district numbers.</span></li>
       <li><b>Collect on paper, in your county.</b><span class="sub">Print sheets from this page. Break rooms are not the place; church halls, kitchen tables, family council meetings, and parking lots after shift are. Keep signed sheets in one folder; never photograph them at work.</span></li>
       <li><b>Sort by district before Organization Day.</b><span class="sub">Copy each sheet. Group originals by the signers' House and Senate districts so each legislator receives the names from their own voters.</span></li>
-      <li><b>Ask a legislator to present it.</b><span class="sub">The one-page ask: "Will you present this petition and support a state direct care staffing standard in the 2027 session?" A phone call to the office beats email; a visit beats both. Bring a family member.</span></li>
-      <li><b>Deliver copies to the committee chairs and the sponsor.</b><span class="sub">House Public Health, Senate Health and Provider Services, and whichever member agrees to author the bill. Attach the coalition brief and the draft Act.</span></li>
+      <li><b>Ask a legislator to present it.</b><span class="sub">Ask them: "Will you present this petition and support a state direct care staffing standard in the 2027 session?" A phone call to the office beats email; a visit beats both. Bring a family member.</span></li>
+      <li><b>Deliver copies to the committee chairs and the sponsor.</b><span class="sub">House Public Health, Senate Health and Provider Services, and whichever member agrees to author the bill. Ask the coalition for the packet to hand them.</span></li>
       <li><b>Log every response.</b><span class="sub">Name, district, party, date, what they said, and the follow-up. Send it back to the coalition so no office is asked twice and none is missed.</span></li>
     </ol>
     <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
@@ -1157,7 +1156,7 @@
       })
       .catch(function () {
         jb.disabled = false; jb.textContent = "Join";
-        jerr.textContent = "The coalition server could not be reached from this copy of the page. " + (CONFIG.organizerEmail ? "Email " + CONFIG.organizerEmail + " from a personal account instead." : "Try again later, or sign the petition and check the coalition box."); jerr.classList.add("show");
+        jerr.textContent = "The sign-up could not be sent. " + (CONFIG.organizerEmail ? "Email " + CONFIG.organizerEmail + " from a personal account instead." : "Try again later, or sign the petition and check the coalition box."); jerr.classList.add("show");
       });
   });
   $("copy-btn").addEventListener("click", function () {
